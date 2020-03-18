@@ -16,8 +16,8 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-//const uri1 = process.env.mongodb || 'mongodb://mongo:27017/Testcase';
-const uri1 = process.env.mongodb || 'mongodb://localhost:27017/Testcase';
+const uri1 = process.env.mongodb || 'mongodb://mongo:27017/Testcase';  //docker-env
+//const uri1 = process.env.mongodb || 'mongodb://localhost:27017/Testcase'; //normal-env
 
 mongoose.connect(uri1,
     {
