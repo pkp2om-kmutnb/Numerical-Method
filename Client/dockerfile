@@ -1,18 +1,15 @@
-FROM node:12.2.0-alpine as react_build 
+FROM node:alpine
+
+RUN mkdir /app
 
 WORKDIR /app
 
-COPY . /app/ 
+COPY package.json /app
 
-RUN npm install 
-RUN npm install react-scripts@3.0.1 -g 
-RUN npm run build 
+RUN npm install
 
-FROM nginx:1.16.0-alpine
+COPY . /app
 
-COPY --from=react_build /app/build /usr/share/nginx/html
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
+EXPOSE 80
 
-EXPOSE 80 
-CMD ["nginx","-g","daemon off;"]
+CMD ["npm","start"]

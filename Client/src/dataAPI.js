@@ -26,8 +26,8 @@ export default {
             body: JSON.stringify(Testcase),
             headers : {
                 "Content-Type" : "application/json"
-            }}).then(res => res.json())
-                .then(data => data);
+            }}).then(res => res.text())
+                .then(text => text);
     }
 }
 //.then(data => data.response[id].datas[index]);

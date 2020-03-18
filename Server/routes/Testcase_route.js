@@ -32,8 +32,8 @@ testcaseRouter.get('/:id',(req,res)=>{
 });
 
 testcaseRouter.post('/',(req,res)=>{
-    const Testcase = new testcase(req.body[0]);
     console.log(Testcase)
+    const Testcase = new testcase(req.body[0]);
     Testcase.save((err,document)=>{
         if(err){
             console.log("Unable to add Testcase")   

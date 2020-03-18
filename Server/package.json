@@ -1,26 +1,20 @@
 {
-  "name": "mern_stack_tutorial",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "client": "cd client && npm run start",
-    "server": "nodemon index --ignore client/",
-    "client-install": "cd client && npm install",
-    "server-install": "npm install",
-    "install-all": "concurrently \"npm run client-install\" \"npm run server-install\"",
-    "dev": "concurrently \"npm run client\" \"npm run server\"",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "start": "node index --ignore",
+    "server": "nodemon index --ignore",
+    "start-docker":"node server --ignore",
+    "server-docker": "nodemon server --ignore",
+    "server-install": "npm install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "js-cookie": "^2.2.1",
-    "mongoose": "^5.7.3",
-    "react-cookie": "^4.0.3"
+    "mongoose": "^5.7.3"
   }
 }
