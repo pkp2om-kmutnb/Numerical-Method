@@ -1,25 +1,7 @@
-Mern Stack Tutorial By NoobCoder.com
+Edit index.js
 
-Video tutorial can be found here:
+On mongo
+const uri1 = process.env.mongodb || 'mongodb://mongo:27017/Testcase';  
 
-https://youtu.be/35BSnmTbjlE
-
-This project was bootstrapped with [Create React App.](https://github.com/facebook/create-react-app)
-
-Project uses the Following as Global Dependencies
-
-For running mulitple scripts
-
-[Concurrently](https://www.npmjs.com/package/concurrently)
-
-Restarting the Server
-
-[Nodemon](https://www.npmjs.com/package/nodemon)
-
-To Install Dependencies Make Sure You Are In Root Directory And Run Following Command
-
-npm run install-all
-
-To Run Application In Development Mode Run The Following Command
-
-npm run dev
+On localhost
+const uri1 = process.env.mongodb || 'mongodb://localhost:27017/Testcase';
