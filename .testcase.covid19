@@ -1,0 +1,31 @@
+Direct method
+
+db.testcases.insert([ 
+{ _id : 11, index :"0" ,name_type : "root", 	    name_method:"bisection" , 	datas 	:[{ "Root" : "2x^3-x^2+2", "xL" : "-2", "xR" : "2", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }] },
+{ _id : 12, index :"1" ,name_type : "root",             name_method: "Graphical", 	datas 	:[{ "Root" : "x^3-x^2+2", "xL" : "-3", "xR" : "0", "Epsilon" : "0", "Maximum_Iterations" : "12" }]     },
+{ _id : 13, index :"2" ,name_type : "root",             name_method: "FalsePosition"  , datas:[{"Root" : "x^3-x^2+2x-5", "xL" : "0", "xR" : "3", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }]}, 
+{ _id : 14, index :"3" ,name_type : "root",             name_method: "OnePointItration",datas:[{"Root" : "3x^2-2x-1", "xL" : "0", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12"  }]  }, 
+{ _id : 15, index :"4" ,name_type : "root",             name_method: "NewtonRaphson",datas   :[{ "Root" : "4x^3-x^2", "xL" : "-10", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12"  }]  },
+{ _id : 16, index :"5" ,name_type : "root",             name_method: "Secant", 	datas 	:[{"Root" : "x^3-x^2+2x-5", "xL" : "-10", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }] },
+{ _id : 17, index :"6" ,name_type : "integration",      name_method: "simpson",  datas   :[{ "fx" : "x^2+2x-4", "a" : 1, "b" : 5, "n" : 10  }] }, 
+{ _id : 18, index :"7" ,name_type : "integration",      name_method: "Trapzoidal",  datas   :[{ "fx" : "x^2+2x-4", "a" : 1, "b" : 5, "n" : 10  }] }, 
+{ _id : 19, index :"8" ,name_type : "differentiation",  name_method: "all",  	datas 	:[{ "fx" : "x^2+2x+10", "x" : 5, "h" : 4, "degree" : 2 }]   }, 
+{ _id : 20, index :"9" ,name_type : "Linear Algebra",   name_method: "2D",    	datas 	:[{ "x1" : 2, "x2" : 1, "x3" : -1, "x4" : -3, "x5" : -1, "x6" : 2 }]  }, 
+{ _id : 21, index :"10" ,name_type : "Linear Algebra",   name_method: "3D",    	datas 	:[{ "x1" : -2, "x2" : 3, "x3" : 1, "x4" : 9, "x5" : 3, "x6" : 4, "x7" : -5, "x8" : 0, "x9" : 1, "x10" : -2, "x11" : 1, "x12" : -4  }]  }, 
+{ _id : 22, index :"11" ,name_type : "Linear Algebra",   name_method: "4D",    	datas 	:[{ "x1" : 2, "x2" : 1, "x3" : -1, "x4" : -3, "x5" : -1, "x6" : 2, "x7" : -2, "x8" : 1, "x9" : 2, "x10" : 8, "x11" : -11, "x12" : -3, "x13" : 2, "x14" : -2, "x15" : 1, "x16" : 2, "x17" : 8, "x18" : -11, "x19" : -3, "x20" : 20 }] }
+])
+
+API method /app
+{  index :"0" ,name_type : "root", 	    name_method:"bisection" , 	datas 	:[{ "Root" : "2x^3-x^2+2", "xL" : "-2", "xR" : "2", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }] }
+{  index :"1" ,name_type : "root",             name_method: "Graphical", 	datas 	:[{ "Root" : "x^3-x^2+2", "xL" : "-3", "xR" : "0", "Epsilon" : "0", "Maximum_Iterations" : "12" }]}
+{  index :"2" ,name_type : "root",             name_method: "FalsePosition"  , datas:[{"Root" : "x^3-x^2+2x-5", "xL" : "0", "xR" : "3", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }]}
+{  index :"3" ,name_type : "root",             name_method: "OnePointItration",datas:[{"Root" : "3x^2-2x-1", "xL" : "0", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12"  }]  }
+{  index :"4" ,name_type : "root",             name_method: "NewtonRaphson",datas   :[{ "Root" : "4x^3-x^2", "xL" : "-10", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12"  }]  
+{  index :"5" ,name_type : "root",             name_method: "Secant", 	datas 	:[{"Root" : "x^3-x^2+2x-5", "xL" : "-10", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }] }
+{  index :"6" ,name_type : "integration",      name_method: "simpson",  	datas   :[{ "fx" : "x^2+2x-4", "a" : 1, "b" : 5, "n" : 10  }] }
+{  index :"7" ,name_type : "integration",      name_method: "Trapzoidal",  datas   :[{ "fx" : "x^2+2x-4", "a" : 1, "b" : 5, "n" : 10  }] }
+{  index :"8" ,name_type : "differentiation",  name_method: "all",  	datas 	:[{ "fx" : "x^2+2x+10", "x" : 5, "h" : 4, "degree" : 2 }]   } 
+{  index :"9" ,name_type : "Linear Algebra",   name_method: "2D",    	datas 	:[{ "x1" : 2, "x2" : 1, "x3" : -1, "x4" : -3, "x5" : -1, "x6" : 2 }]  }
+{  index :"10" ,name_type : "Linear Algebra",   name_method: "3D",    	datas 	:[{ "x1" : -2, "x2" : 3, "x3" : 1, "x4" : 9, "x5" : 3, "x6" : 4, "x7" : -5, "x8" : 0, "x9" : 1, "x10" : -2, "x11" : 1, "x12" : -4  }]  } 
+{  index :"11" ,name_type : "Linear Algebra",   name_method: "4D",    	datas 	:[{ "x1" : 2, "x2" : 1, "x3" : -1, "x4" : -3, "x5" : -1, "x6" : 2, "x7" : -2, "x8" : 1, "x9" : 2, "x10" : 8, "x11" : -11, "x12" : -3, "x13" : 2, "x14" : -2, "x15" : 1, "x16" : 2, "x17" : 8, "x18" : -11, "x19" : -3, "x20" : 20 }] }
+
