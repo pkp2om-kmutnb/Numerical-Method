@@ -26,49 +26,35 @@ class bisec extends rootMom {
 
   }
   bisection = (a, b, mitr, eps) => {
-    let cnt = 0
+    let counter = 0
     var c = a;
     c = (a + b) / 2;
     let fc = this.func(c)
     let fa = this.func(a)
     let fb = this.func(b)
-    let fn = this.func(cnt)
-    this.state.items.push({ n: cnt, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, fn: fn })
-    cnt++
-    if (fc * fa < 0) {
-      b = c
-    }
-    else {
-      a = c
-    }
+    this.state.items.push({ n: counter, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, fn: this.func(counter) })
+    counter++
+    if (fc * fa < 0) b = c
+    else a = c
     fc = this.func(c)
     fa = this.func(a)
     fb = this.func(b)
-    fn = this.func(cnt)
-    this.state.items.push({ n: cnt, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, fn: fn })
-    cnt++
-    while (cnt < mitr) {
+    this.state.items.push({ n: counter, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, fn: this.func(counter) })
+    counter++
+    while (counter < mitr) {
       c = (a + b) / 2;
-      let fcn = this.func(c)
+      let fcnew = this.func(c)
       fa = this.func(a)
       fb = this.func(b)
-      if (c == 0 || fcn == 0)
-        break
-      else if (fcn * fa < 0) {
-        b = c
-      }
-      else {
-        a = c
-      }
-      let accuraccy = Math.abs((fcn - fc) / fcn)
-      fn = this.func(cnt)
-      this.state.items.push({ n: cnt, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fcn, acc: accuraccy, fn: fn })
-      cnt++
-      fc = fcn
-      if (Math.abs(fcn - fa) < eps) {
-        break
-      }
-      cnt++
+      if (c == 0 || fcnew == 0) break
+      else if (fcnew * fa < 0) b = c
+      else a = c
+      let accuraccy = this.error(fcnew, fc)
+      this.state.items.push({ n: counter, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fcnew, acc: accuraccy, fn: this.func(counter) })
+      counter++
+      fc = fcnew
+      if (Math.abs(fcnew - fa) < eps)  break
+      counter++
     }
     this.setState({ items: this.state.items })
   }

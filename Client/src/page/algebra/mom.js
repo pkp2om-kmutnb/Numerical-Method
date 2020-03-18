@@ -139,7 +139,7 @@ class mom extends Component {
       end = new Date().getTime();
     }
   }
-  
+
   renderAuthen(cookie) {
     try {
       return cookie.length != '' ? 1 : 0
@@ -152,6 +152,21 @@ class mom extends Component {
     event.preventDefault();
     this.Answer();
   };
+
+  fix_point = (x) => {
+    return Math.round((x) * 100) / 100
+  }
+
+  output = (x) => {
+    if (this.state.n == 3) {
+      this.state.items.push({ x1: Math.round(x[0]).toFixed(6), x2: Math.round(x[1]).toFixed(6), x3: Math.round(x[2]).toFixed(6) })
+    } else if (this.state.n == 4) {
+      this.state.items.push({ x1: Math.round(x[0]).toFixed(6), x2: Math.round(x[1]).toFixed(6), x3: Math.round(x[2]).toFixed(6), x4: Math.round(x[3]).toFixed(6) })
+    } else {
+      this.state.items.push({ x1: Math.round(x[0]).toFixed(6), x2: Math.round(x[1]).toFixed(6) })
+    }
+    this.setState({ items: this.state.items })
+  }
 
   Answer = () => {
     if (this.state.n == 2) {

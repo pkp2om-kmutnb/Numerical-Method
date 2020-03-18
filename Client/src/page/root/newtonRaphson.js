@@ -12,13 +12,7 @@ import Login from '../Secure/login';
 const cookies = new Cookies();
 var algebra = require('algebra.js');
 class newtonRaphson extends rootMom {
-  constructor(props) {
-    super(props)
-    if (cookies.get('temp') == 'true') {
-      //this.wait(4000)
-      { cookies.set('temp', 'false', { path: '/newtonRaphson' }) }
-    }
-  }
+  
   showAnswer = () => {
     this.newton(this.state.a, this.state.mitr, this.state.eps)
   }
@@ -33,15 +27,15 @@ class newtonRaphson extends rootMom {
   newton = (a, mitr, eps) => {
     var xold = a;
     var xnew = 0;
-    var epsilon = parseFloat(0.000000);
-    var n = 0;
+    var epsilon = 0;
+    var counter = 0;
     do {
       xnew = xold - (this.func(xold) / this.funcDiff(xold));
       epsilon = this.error(xnew, xold)
-      this.state.items.push({ n: n, fn: this.func(n), acc: Math.abs(epsilon).toFixed(6), xM: xold.toFixed(6), fxM: xnew.toFixed(6) })
-      n++;
+      this.state.items.push({ n: counter, fn: this.func(counter), acc: Math.abs(epsilon).toFixed(6), xM: xold.toFixed(6), fxM: xnew.toFixed(6) })
+      counter++;
       xold = xnew;
-    } while (Math.abs(epsilon) > eps && n < mitr);
+    } while (Math.abs(epsilon) > eps && counter < mitr);
     this.setState({ items: this.state.items })
 
   }

@@ -27,46 +27,42 @@ class falsePosition extends rootMom {
 
 
   falsePos = (a,b,mitr,eps) => {
-    let co = a * 1.0;
-    let i = 0
+    let cold = a * 1.0;
+    let counter = 0
     let fa =this.func(a)
     let fb =this.func(b)
-    let fc =this.func(co)
-    let fn = this.func(i)
-    this.state.items.push({ n: i, xL: a, xR: b, xM: co, fxL: fa, fxR: fb, fxM: fc,fn:fn})
-    i++
+    let fc =this.func(cold)
+    this.state.items.push({ n: counter, xL: a, xR: b, xM: cold, fxL: fa, fxR: fb, fxM: fc,fn:this.func(counter)})
+    counter++
     
-    let cn = (a * fb - b * fa) / (fb - fa);
+    let cnew = (a * fb - b * fa) / (fb - fa);
     if (fc * fa < 0)
-      a = cn
+      a = cnew
     else
-      b = cn
+      b = cnew
     fa =this.func(a)
     fb =this.func(b)
-    fc =this.func(co)
-    fn = this.func(i)
-    this.state.items.push({ n: i, xL: a, xR: b, xM: co, fxL: fa, fxR: fb, fxM: fc,fn:fn})
-    i++
-
-    while (i < mitr) {
+    fc =this.func(cold)
+    this.state.items.push({ n: counter, xL: a, xR: b, xM: cold, fxL: fa, fxR: fb, fxM: fc,fn:this.func(counter)})
+    counter++
+    while (counter < mitr) {
       fa =this.func(a)
       fb =this.func(b)
       if (fb - fa === 0)
         break
-      cn = ((a * fb) - (b * fa)) / (fb - fa);
-      fc =this.func(cn)
+      cnew = ((a * fb) - (b * fa)) / (fb - fa);
+      fc =this.func(cnew)
       if (fc * fa < 0)
-        a = cn
+        a = cnew
       else
-        b = cn
-      let accuraccy = this.error(cn,co)
+        b = cnew
+      let accuraccy = this.error(cnew,cold)
       if (accuraccy < eps)
         break
-      co=cn
+        cold=cnew
       //console.log(c)
-      fn = this.func(i)
-      this.state.items.push({ n: i , xL: a, xR: b, xM: co, fxL: fa, fxR: fb, fxM: fc, acc: accuraccy,fn:fn })
-      i++
+      this.state.items.push({ n: counter , xL: a, xR: b, xM: cold, fxL: fa, fxR: fb, fxM: fc, acc: accuraccy,fn:this.func(counter)})
+      counter++
     }
     this.setState({ items: this.state.items })
     

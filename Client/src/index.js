@@ -26,7 +26,7 @@ import login from './page/Secure/login';
 import gaussEliminate from './page/algebra/gaussEliminate';
 import gaussJordan from './page/algebra/gaussJordan';
 import LU from './page/algebra/LU';
-import Matrix from './page/algebra/Matrix';
+
 import cramer from './page/algebra/cramer';
 
 import CompositeSimpson from './page/integration/CompositeSimpson';
@@ -46,7 +46,6 @@ ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/app" component={App} />
         <Route path="/" component={Home} />
-        <Route path="/Matrix" component={Matrix} />
         <Route path="/logout" component={logout} />
         <Route path="/admin" component={admin} />
         <Route path="/Home" component={Home} />

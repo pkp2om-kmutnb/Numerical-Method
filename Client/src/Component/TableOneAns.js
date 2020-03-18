@@ -11,6 +11,7 @@ const TableFunction = (props) => {
 
                 <tr className="myfontstye3">
                     <th scope="col"> Answer </th>
+                    <th scope="col"> Accuracy </th>
                 </tr>
 
             </thead>

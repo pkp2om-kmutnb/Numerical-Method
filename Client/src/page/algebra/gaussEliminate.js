@@ -4,16 +4,10 @@ import Menubar from '../../Component/Menubar';
 import algeMom from './mom';
 import Cookies from 'universal-cookie';
 import Login from '../Secure/login';
-import Matrix from './Matrix';
+import Matrix from './template';
 const cookies = new Cookies();
 class gaussEliminate extends algeMom {
-    constructor(props) {
-        super(props)
-        if (cookies.get('temp') == 'true') {
-            //this.wait(4000)
-            { cookies.set('temp', 'false', { path: '/gaussEliminate' }) }
-        }
-    }
+ 
 
     handleCheck = (event) => {
         if (event.target.checked) {

@@ -89,13 +89,13 @@ class mom extends Component {
     }
 
 
-    exactIntegrate(a, b) {
+    Integrate(a, b) {
         var expr = math.compile(Algebrite.integral(Algebrite.eval(this.state.fx)).toString())
         return expr.eval({ x: b }) - expr.eval({ x: a })
 
     }
 
-    summationFunction(start, n, h) {
+    sum(start, n, h) {
         var sum = 0
         var counter = h
         for (var i = start; i < n; i += 2) {

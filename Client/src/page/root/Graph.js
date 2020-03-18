@@ -22,7 +22,7 @@ class Graph extends rootMom {
 
   showAnswer = () => {
     
-    this.ghaph(this.state.a, this.state.b, this.state.mitr)
+    this.graph(this.state.a, this.state.b, this.state.mitr)
   }
 
   handleCheck = event => {
@@ -33,15 +33,12 @@ class Graph extends rootMom {
   };
 
 
-  ghaph = (a, b, mitr) => {
-    let temp = (b - a) / mitr * 1.0
-    let start = a
-    for (let i = 1; i < mitr; i++) {
-      let fcn = this.func(start)
-      let t = start
-      start += temp
-      this.state.items.push({ n: i, xM: start, fxM: fcn ,fn: this.func(i) , acc : this.error(start,t)})
-      
+  graph = (a, b, mitr) => {
+    let dis = (b - a) / mitr * 1.0
+    for (let counter = 1; counter < mitr; counter++) {
+      let old_a = a
+      a += dis
+      this.state.items.push({ n: counter, xM: old_a, fxM: this.func(a) ,fn: this.func(counter) , acc : this.error(a,old_a)})
     }
     this.setState({ items: this.state.items })
   }
@@ -52,7 +49,6 @@ class Graph extends rootMom {
          {this.renderAuthen(cookies.get('username'))?
         <table className="NavBodyImg2">
           <Menubar title="Graphical" />
-
           <div className="myfontstye NavBoxText">
             <h2 >Graphical Method</h2>
             <p>

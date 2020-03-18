@@ -28,14 +28,14 @@ class onepoint extends rootMom {
     var xold = this.state.a
     var epsilon= parseFloat(0.000000);
     var xnew = 0;
-    var n = 0;
+    var counter = 0;
     do {
       xnew = this.func(xold);
       epsilon = this.error(xnew, xold)
-      this.state.items.push({ n: n, xM: xold.toFixed(6),fxM: xnew.toFixed(6), acc: Math.abs(epsilon).toFixed(6), fn: this.func(n) })
-      n++;
+      this.state.items.push({ n: counter, xM: xold.toFixed(6),fxM: xnew.toFixed(6), acc: Math.abs(epsilon).toFixed(6), fn: this.func(counter) })
+      counter++;
       xold = xnew;
-    } while (Math.abs(epsilon) > this.state.eps && n < this.state.mitr);
+    } while (Math.abs(epsilon) > this.state.eps && counter < this.state.mitr);
     this.setState({ items: this.state.items })
   }
 

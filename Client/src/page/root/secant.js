@@ -32,30 +32,27 @@ class secant extends rootMom {
 
 
   secant = (a, b, mitr, eps) => {
-    let i = 0
+    let counter = 0
     let fa = this.func(a)
     let fb = this.func(b)
     let c = b - (fb / ((fb - fa) / (b - a)))
     let fc = this.func(c)
-    let fn = this.func(i)
-    this.state.items.push({ n: i, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, fn: fn })
-    i++
+    this.state.items.push({ n: counter, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, fn: this.func(counter) })
+    counter++
     a = b
     b = c
-    while (i < mitr) {
+    while (counter < mitr) {
       let e = c
       fa = this.func(a)
       fb = this.func(b)
       c = b - (fb / ((fb - fa) / (b - a)))
       fc = this.func(c)
       let fcron = this.error(c, e)
-      if (fcron < eps)
-        break
-      fn = this.func(i)
-      this.state.items.push({ n: i, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, acc: fcron, fn: fn })
+      if (fcron < eps) break
+      this.state.items.push({ n: counter, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, acc: fcron, fn: this.func(counter) })
       a = b
       b = c
-      i++
+      counter++
     }
     this.setState({ items: this.state.items })
 
