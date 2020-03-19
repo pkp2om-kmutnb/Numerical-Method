@@ -1,4 +1,6 @@
 # Numerical-Method
+<br/> 
+#Run Docker<br/> 
 docker-compose up --build <br/>
 
 <br/> 
