@@ -5,6 +5,8 @@ docker-compose up --build <br/>
 
 <br/> 
 #First Time<br/> 
+git config --global user.email " "
+git config --global user.name " "
 git init <br/>
 git add . <br/> 
 git commit -m "version 2" <br/>
