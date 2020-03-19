@@ -85,7 +85,7 @@ class Composite_Trapezoidal extends mom {
                         <table>
                             {this.state.items == "" ? " " :
                                 <div class="myfontstye3">
-                                    <TableFunction items={this.state.items} />
+                                    <TableFunction  n={2} items={this.state.items} />
 
                                 </div>
                             }
