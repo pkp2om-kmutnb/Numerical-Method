@@ -1,13 +1,19 @@
 # Numerical-Method
 docker-compose up --build <br/>
-docker build . -t Numerical <br/>
-docker run -p 3000:3000 Numerical <br/>
 
 <br/> 
+#First Time<br/> 
 git init <br/>
 git add . <br/> 
 git commit -m "version 2" <br/>
 git remote add origin https://github.com/pkp2om-kmutnb/Numerical-Method <br/>
 git push -u origin master <br/>
+
+<br/> 
+#Next Time<br/> 
+git add . <br/> 
+git commit -m "version 2" <br/>
 git pull origin master <br/>
+git push -u origin master <br/>
+
 
