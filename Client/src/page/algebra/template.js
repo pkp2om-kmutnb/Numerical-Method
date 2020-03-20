@@ -180,82 +180,82 @@ class cramer extends algeMom {
             <table>
                 {/* INPUT BOX*/}
                 <div class="form-group">
-                    <div class="col-xs-4 NavBox2 ">
-                        <label class="ml-auto slice" for="n">Size of Matrix</label>
+                    <div class="col-xs-3 NavBox2 ">
+                        <label class="ml-auto slice" for="n">Size of Matrix (2-4)</label>
                         <input class="ml-auto slice" id="n" type="Number" onChange={e => { this.setState({ n: e.target.value }) }} value={this.state.n} />
                     </div>
                     {this.state.n == "3" ?
                         <form action="" class="form-group" onSubmit={this.handleSummit}>
                             <div class="form-group row">
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
                                 </div>
-                                <div class="col-xs-4 NavBox2 ">
+                                <div class="col-xs-3 NavBox2 ">
                                     <label class="navCenter" for="ex1">X</label>
                                     <input class="form-control floatNumber" id="ex1" type="Number" onChange={e => { this.setState({ func1: e.target.value }) }} value={this.state.func1} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
                                     <label class="navCenter" for="ex2">Y</label>
                                     <input class="form-control floatNumber" id="ex2" type="Number" onChange={e => { this.setState({ func2: e.target.value }) }} value={this.state.func2} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
                                     <label class="navCenter" for="ex3">Z</label>
                                     <input class="form-control floatNumber" id="ex3" type="Number" onChange={e => { this.setState({ func3: e.target.value }) }} value={this.state.func3} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
                                     <label class="navCenter" for="ex4">R</label>
                                     <input class="form-control floatNumber" id="ex4" type="Number" onChange={e => { this.setState({ func4: e.target.value }) }} value={this.state.func4} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
                                 </div>
 
                             </div>
                             <div class="form-group row ">
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
 
                                     <input class="form-control floatNumber" id="ex5" type="Number" onChange={e => { this.setState({ func5: e.target.value }) }} value={this.state.func5} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
 
                                     <input class="form-control floatNumber" id="ex6" type="Number" onChange={e => { this.setState({ func6: e.target.value }) }} value={this.state.func6} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
 
                                     <input class="form-control floatNumber" id="ex7" type="Number" onChange={e => { this.setState({ func7: e.target.value }) }} value={this.state.func7} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
 
                                     <input class="form-control floatNumber" id="ex8" type="Number" onChange={e => { this.setState({ func8: e.target.value }) }} value={this.state.func8} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
                                 </div>
 
                             </div>
                             <div class="form-group row ">
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
 
                                     <input class="form-control floatNumber" id="ex9" type="Number" onChange={e => { this.setState({ func9: e.target.value }) }} value={this.state.func9} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
 
                                     <input class="form-control floatNumber" id="ex10" type="Number" onChange={e => { this.setState({ func10: e.target.value }) }} value={this.state.func10} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
 
                                     <input class="form-control floatNumber" id="ex11" type="Number" onChange={e => { this.setState({ func11: e.target.value }) }} value={this.state.func11} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
 
                                     <input class="form-control floatNumber" id="ex12" type="Number" onChange={e => { this.setState({ func12: e.target.value }) }} value={this.state.func12} />
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
                                 </div>
 
                             </div>
-                            <div class="col-xs-4 NavBox2">
+                            <div class="col-xs-3 NavBox2">
                                 <button type="submit" class="btn btn-primary" onChange={this.handleSubmit}>Excute</button>
                             </div>
                             <div class="slice NavBox2">
@@ -266,40 +266,40 @@ class cramer extends algeMom {
                         : this.state.n == "2" ?
                             <form action="" class="form-group" onSubmit={this.handleSummit}>
                                 <div class="form-group row">
-                                    <div class="col-xs-4 NavBox2">
+                                    <div class="col-xs-3 NavBox2">
                                     </div>
-                                    <div class="col-xs-4 NavBox2 ">
+                                    <div class="col-xs-3 NavBox2 ">
                                         <label class="navCenter" for="ex1">X</label>
                                         <input class="form-control floatNumber" id="ex1" type="Number" onChange={e => { this.setState({ func1: e.target.value }) }} value={this.state.func1} />
                                     </div>
-                                    <div class="col-xs-4 NavBox2">
+                                    <div class="col-xs-3 NavBox2">
                                         <label class="navCenter" for="ex2">Y</label>
                                         <input class="form-control floatNumber" id="ex2" type="Number" onChange={e => { this.setState({ func2: e.target.value }) }} value={this.state.func2} />
                                     </div>
 
-                                    <div class="col-xs-4 NavBox2">
+                                    <div class="col-xs-3 NavBox2">
                                         <label class="navCenter" for="ex4">R</label>
                                         <input class="form-control floatNumber" id="ex3" type="Number" onChange={e => { this.setState({ func3: e.target.value }) }} value={this.state.func3} />
                                     </div>
-                                    <div class="col-xs-4 NavBox2">
+                                    <div class="col-xs-3 NavBox2">
                                     </div>
                                 </div>
                                 <div class="form-group row ">
-                                    <div class="col-xs-4 NavBox2">
+                                    <div class="col-xs-3 NavBox2">
                                     </div>
-                                    <div class="col-xs-4 NavBox2">
+                                    <div class="col-xs-3 NavBox2">
                                         <input class="form-control floatNumber" id="ex4" type="Number" onChange={e => { this.setState({ func4: e.target.value }) }} value={this.state.func4} />
                                     </div>
-                                    <div class="col-xs-4 NavBox2">
+                                    <div class="col-xs-3 NavBox2">
                                         <input class="form-control floatNumber" id="ex5" type="Number" onChange={e => { this.setState({ func5: e.target.value }) }} value={this.state.func5} />
                                     </div>
-                                    <div class="col-xs-4 NavBox2">
+                                    <div class="col-xs-3 NavBox2">
                                         <input class="form-control floatNumber" id="ex6" type="Number" onChange={e => { this.setState({ func6: e.target.value }) }} value={this.state.func6} />
                                     </div>
-                                    <div class="col-xs-4 NavBox2">
+                                    <div class="col-xs-3 NavBox2">
                                     </div>
                                 </div>
-                                <div class="col-xs-4 NavBox2">
+                                <div class="col-xs-3 NavBox2">
                                     <button type="submit" class="btn btn-primary" >Excute</button>
                                 </div>
                                 <div class="slice NavBox2">
@@ -312,110 +312,110 @@ class cramer extends algeMom {
                             : this.state.n == "4" ?
                                 <form action="" class="form-group" onSubmit={this.handleSummit}>
                                     <div class="form-group row">
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                         </div>
-                                        <div class="col-xs-4 NavBox2 ">
+                                        <div class="col-xs-3 NavBox2 ">
                                             <label class="navCenter" for="ex1">W</label>
                                             <input class="form-control floatNumber" id="ex1" type="Number" onChange={e => { this.setState({ func1: e.target.value }) }} value={this.state.func1} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                             <label class="navCenter" for="ex2">X</label>
                                             <input class="form-control floatNumber" id="ex2" type="Number" onChange={e => { this.setState({ func2: e.target.value }) }} value={this.state.func2} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                             <label class="navCenter" for="ex3">Y</label>
                                             <input class="form-control floatNumber" id="ex3" type="Number" onChange={e => { this.setState({ func3: e.target.value }) }} value={this.state.func3} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                             <label class="navCenter" for="ex13">Z</label>
                                             <input class="form-control floatNumber" id="ex4" type="Number" onChange={e => { this.setState({ func4: e.target.value }) }} value={this.state.func4} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                             <label class="navCenter" for="ex4">R</label>
                                             <input class="form-control floatNumber" id="ex5" type="Number" onChange={e => { this.setState({ func5: e.target.value }) }} value={this.state.func5} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                         </div>
 
                                     </div>
                                     <div class="form-group row ">
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                             <input class="form-control floatNumber" id="ex6" type="Number" onChange={e => { this.setState({ func6: e.target.value }) }} value={this.state.func6} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                             <input class="form-control floatNumber" id="ex7" type="Number" onChange={e => { this.setState({ func7: e.target.value }) }} value={this.state.func7} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                             <input class="form-control floatNumber" id="ex8" type="Number" onChange={e => { this.setState({ func8: e.target.value }) }} value={this.state.func8} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex9" type="Number" onChange={e => { this.setState({ func9: e.target.value }) }} value={this.state.func9} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex10" type="Number" onChange={e => { this.setState({ func10: e.target.value }) }} value={this.state.func10} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                         </div>
 
                                     </div>
                                     <div class="form-group row ">
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex11" type="Number" onChange={e => { this.setState({ func11: e.target.value }) }} value={this.state.func11} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex12" type="Number" onChange={e => { this.setState({ func12: e.target.value }) }} value={this.state.func12} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex13" type="Number" onChange={e => { this.setState({ func13: e.target.value }) }} value={this.state.func13} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex14" type="Number" onChange={e => { this.setState({ func14: e.target.value }) }} value={this.state.func14} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex15" type="Number" onChange={e => { this.setState({ func15: e.target.value }) }} value={this.state.func15} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                         </div>
                                     </div>
 
                                     <div class="form-group row ">
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex16" type="Number" onChange={e => { this.setState({ func16: e.target.value }) }} value={this.state.func16} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex17" type="Number" onChange={e => { this.setState({ func17: e.target.value }) }} value={this.state.func17} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex18" type="Number" onChange={e => { this.setState({ func18: e.target.value }) }} value={this.state.func18} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex19" type="Number" onChange={e => { this.setState({ func19: e.target.value }) }} value={this.state.func19} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
 
                                             <input class="form-control floatNumber" id="ex20" type="Number" onChange={e => { this.setState({ func20: e.target.value }) }} value={this.state.func20} />
                                         </div>
-                                        <div class="col-xs-4 NavBox2">
+                                        <div class="col-xs-3 NavBox2">
                                         </div>
                                     </div>
-                                    <div class="col-xs-4 NavBox2">
+                                    <div class="col-xs-3 NavBox2">
                                         <button type="submit" class="btn btn-primary" >Excute</button>
                                     </div>
                                     <div class="slice NavBox2">
@@ -426,7 +426,7 @@ class cramer extends algeMom {
                                 :
                                 " "
                     }
-                    <div class="col-xs-4 NavBox2">
+                    <div class="col-xs-3 NavBox2">
                         <table>
                             {this.state.items == "" ? " " :
                                 <div class="myfontstye3">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { create, all } from 'mathjs'
 import Axios from 'axios'
-import TestcaseAPI from '../../dataAPI';
+import TestcaseAPI from '../../TestcaseAPI';
 const math = create(all)
 
 class mom extends Component {

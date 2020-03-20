@@ -13,7 +13,7 @@ class CentralH extends mom {
   render() {
     return (
       <div className="bisec">
-        <Template id={3}/>
+        <Template id={3} name="Central First Degree"/>
       </div>
     );
   }

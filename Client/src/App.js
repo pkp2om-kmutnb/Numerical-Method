@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Axios from 'axios'
-import TestcaseAPI from './dataAPI';
+import TestcaseAPI from './TestcaseAPI';
 import { create, all } from 'mathjs'
 const math = create(all)
 var algebra = require('algebra.js');

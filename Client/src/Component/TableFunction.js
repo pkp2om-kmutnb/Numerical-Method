@@ -17,7 +17,7 @@ const TableFunction = (props) => {
                     <th scope="col"> f(xL) </th>
                     <th scope="col"> f(xM) </th>
                     <th scope="col"> f(xR) </th>
-                    <th scope="col"> accuracy</th>
+                    <th scope="col"> Error </th>
                 </tr>
 
             </thead>

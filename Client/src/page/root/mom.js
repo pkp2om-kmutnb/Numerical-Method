@@ -2,7 +2,7 @@ import '../../App.css';
 import { Component } from 'react';
 import Login from '../Secure/login';
 import Axios from 'axios'
-import TestcaseAPI from '../../dataAPI';
+import TestcaseAPI from '../../TestcaseAPI';
 import { create, all } from 'mathjs'
 const math = create(all)
 var algebra = require('algebra.js');
@@ -89,14 +89,19 @@ class mom extends Component {
 
   Answer = (json) => {
     const obj = JSON.parse(json);
-    this.state.a = parseFloat(obj.a);
-    this.state.b = parseFloat(obj.b);
-    this.state.eps = parseFloat(obj.eps);
-    this.state.mitr = parseInt(obj.mitr);
-    let exp = new algebra.parse(this.state.equ);
-    let temp = exp.toString()
-    this.state.equ = temp
-    this.showAnswer()
+    if(obj.mitr <= 100 && obj.mitr > 0){
+      this.state.a = parseFloat(obj.a);
+      this.state.b = parseFloat(obj.b);
+      this.state.eps = parseFloat(obj.eps);
+      this.state.mitr = parseInt(obj.mitr);
+      let exp = new algebra.parse(this.state.equ);
+      let temp = exp.toString()
+      this.state.equ = temp
+      this.showAnswer()
+    }else{
+      alert("Plese Enter Maximum Iterations 1-100")
+    }
+    
   }
 
   showAnswer = () => {

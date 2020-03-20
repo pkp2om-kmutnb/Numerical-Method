@@ -28,18 +28,27 @@ class Menubar extends Component {
 
   renderSearch(page) {
     let page_name = ["Bisection", "Graphical", "False Position", "One Point Itration", "Newton Raphson",
-      "Secant", "Cramer's Rule", "Gauss Eliminate", "LU Decomposition", "Cholesky Decomposition", "Gauss Jordan", "Jacobi Iteration", "Gauss-Sidel Iteration", "Conjugate Gradient"]
+      "Secant", "Cramer's Rule", "Gauss Eliminate", "LU Decomposition", "Gauss Jordan",
+      "Composite Simpson Rule", "Composite Trapezoidal Rule", "Backward First Degree", "Backward Second Degree",
+      "Central First Degree", "Central Second Degree", "Forward First Degree", "Forward Second Degree"
+    ]
 
     let page_index = ["/bisec", "/Graph", "/falsePosition", "/onepoint", "/newtonRaphson", "/secant",
-      "/cramer", "/gaussEliminate", "/LU", "/cholesky", "/gaussJordan", "/Jacobi", "/GaussSidel", "/Conjugate"]
+      "/cramer", "/gaussEliminate", "/LU", "/gaussJordan", "/CompositeSimpson", "/CompositeTrapzoidal",
+      "/Backwardh", "/Backwardh2", "/Centralh", "/Centralh2", "/Forwardh", "/Forwardh2"
+    ]
 
+    let sum = 0
+    let index = 0
     for (let i = 0; i < page_name.length; i++) {
       if (page.toLowerCase() === page_name[i].toLowerCase()) {
         window.history.pushState(page_name[i], page_name[i], page_index[i])
-        break
       }
     }
+  
   }
+
+
 
 
   render() {
@@ -84,7 +93,7 @@ class Menubar extends Component {
                   <a class={this.props.title === "Gauss Eliminate" ? "dropdown-item active" : "dropdown-item"} href="./gaussEliminate">Gauss Eliminate</a>
                   <a class={this.props.title === "Gauss Jordan" ? "dropdown-item active" : "dropdown-item"} href="./gaussJordan">Gauss Jordan</a>
                   <a class={this.props.title === "LU Decomposition" ? "dropdown-item active" : "dropdown-item"} href="./LU">LU Decomposition</a>
-              
+
                 </div>
               </li>
 
@@ -95,7 +104,7 @@ class Menubar extends Component {
                     </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class={this.props.title === "Composite Simpson Rule" ? "dropdown-item active" : "dropdown-item"} href="./CompositeSimpson">Composite Simpson</a>
-                  <a class={this.props.title === "Composite Trapzoidal Rule" ? "dropdown-item active" : "dropdown-item"} href="./CompositeTrapzoidal">Composite Trapzoidal</a>
+                  <a class={this.props.title === "Composite Trapezoidal Rule" ? "dropdown-item active" : "dropdown-item"} href="./CompositeTrapzoidal">Composite Trapzoidal</a>
                 </div>
               </li>
 
@@ -104,12 +113,12 @@ class Menubar extends Component {
                   Differentiation
                     </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class={this.props.title === "Composite Simpson Rule" ? "dropdown-item active" : "dropdown-item"} href="./Backwardh">Backward First Degree</a>
-                  <a class={this.props.title === "Composite Trapzoidal Rule" ? "dropdown-item active" : "dropdown-item"} href="./Backwardh2">Backward Second Degree</a>
-                  <a class={this.props.title === "Composite Simpson Rule" ? "dropdown-item active" : "dropdown-item"} href="./Centralh">Central First Degree</a>
-                  <a class={this.props.title === "Composite Trapzoidal Rule" ? "dropdown-item active" : "dropdown-item"} href="./Centralh2">Central Second Degree</a>
-                  <a class={this.props.title === "Composite Simpson Rule" ? "dropdown-item active" : "dropdown-item"} href="./Forwardh">Forward First Degree</a>
-                  <a class={this.props.title === "Composite Trapzoidal Rule" ? "dropdown-item active" : "dropdown-item"} href="./Forwardh2">Forward Second Degree</a>
+                  <a class={this.props.title === "Backward First Degree" ? "dropdown-item active" : "dropdown-item"} href="./Backwardh">Backward First Degree</a>
+                  <a class={this.props.title === "Backward Second Degree" ? "dropdown-item active" : "dropdown-item"} href="./Backwardh2">Backward Second Degree</a>
+                  <a class={this.props.title === "Central First Degree" ? "dropdown-item active" : "dropdown-item"} href="./Centralh">Central First Degree</a>
+                  <a class={this.props.title === "Central Second Degree" ? "dropdown-item active" : "dropdown-item"} href="./Centralh2">Central Second Degree</a>
+                  <a class={this.props.title === "Forward First Degree" ? "dropdown-item active" : "dropdown-item"} href="./Forwardh">Forward First Degree</a>
+                  <a class={this.props.title === "Forward Second Degree" ? "dropdown-item active" : "dropdown-item"} href="./Forwardh2">Forward Second Degree</a>
                 </div>
               </li>
               {cookie == 'admin' ?
@@ -122,7 +131,7 @@ class Menubar extends Component {
                   </li>
                 </div>
                 : ""}
-             {/* <li class="nav-item">
+              {/* <li class="nav-item">
                 <a class="nav-link" href="./logout">Logout</a>
               </li>*/}
             </ul>

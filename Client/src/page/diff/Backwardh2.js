@@ -13,7 +13,7 @@ class Backwardh2 extends mom {
   render() {
     return (
       <div className="bisec">
-        <Template id={2}/>
+        <Template id={2} name="Backward Second Degree"/>
       </div>
     );
   }

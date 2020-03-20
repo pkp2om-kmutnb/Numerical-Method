@@ -14,7 +14,7 @@ class Forwardh extends mom {
   render() {
     return (
       <div className="bisec">
-       <Template id={5}/>
+       <Template id={5} name="Forward First Degree"/>
       </div>
     );
   }

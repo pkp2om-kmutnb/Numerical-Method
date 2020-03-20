@@ -40,7 +40,7 @@ class falsePosition extends rootMom {
             if (neg) xr = xi;  
             else xl = xi;
         }   
-        this.state.items.push({ n: counter, xL: xl.toFixed(6), xR: xr.toFixed(6), xM: xi.toFixed(6), fxL: this.func(xl).toFixed(6), fxR: this.func(xr).toFixed(6), fxM: this.func(xi).toFixed(6),fn:this.func(counter)})
+        this.state.items.push({ n: counter, xL: xl.toFixed(6), xR: xr.toFixed(6), xM: xi.toFixed(6), fxL: this.func(xl).toFixed(6), fxR: this.func(xr).toFixed(6), fxM: this.func(xi).toFixed(6),fn:this.func(counter),acc:epsilon})
         counter++;  
     }while(Math.abs(epsilon)>eps && counter < mitr);
     this.setState({ items: this.state.items })

@@ -23,7 +23,7 @@ class bisec extends rootMom {
   bisection(xl, xr, mitr, eps) {
     let neg = false;
     let xm = 0;
-    let sum = 0;
+    let epsilon = 0;
     let counter = 0;
     if (this.func(xl) < this.func(xr)) {
       neg = true;
@@ -31,18 +31,18 @@ class bisec extends rootMom {
     do {
       xm = (xl + xr) / 2;
       if (this.func(xm) * this.func(xr) < 0) {
-        sum = this.error(xm, xr);
+        epsilon = this.error(xm, xr);
         if (neg) xl = xm;
         else xr = xm;
       }
       else {
-        sum = this.error(xm, xl);
+        epsilon = this.error(xm, xl);
         if (neg) xr = xm;
         else xl = xm;
       }
-      this.state.items.push({ n: counter, xL: xl.toFixed(6), xR: xr.toFixed(6), xM: xm.toFixed(6), fxL: this.func(xl).toFixed(6), fxR: this.func(xr).toFixed(6), fxM: this.func(xm).toFixed(6),fn:this.func(counter).toFixed(6),acc:Math.abs(sum).toFixed(6)})
+      this.state.items.push({ n: counter, xL: xl.toFixed(6), xR: xr.toFixed(6), xM: xm.toFixed(6), fxL: this.func(xl).toFixed(6), fxR: this.func(xr).toFixed(6), fxM: this.func(xm).toFixed(6),fn:this.func(counter).toFixed(6),acc:Math.abs(epsilon).toFixed(6)})
       counter++;
-    } while (Math.abs(sum) > eps && counter<mitr);
+    } while (Math.abs(epsilon) > eps && counter<mitr);
     this.setState({ items: this.state.items })
 
   }

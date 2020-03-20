@@ -33,7 +33,7 @@ class newtonRaphson extends rootMom {
     do {
       xnew = xold - (this.func(xold) / this.funcDiff(xold));
       epsilon = this.error(xnew, xold)
-      this.state.items.push({ n: counter, fn: this.func(counter), acc: Math.abs(epsilon).toFixed(6), xM: xold.toFixed(6).toFixed(6), fxM: xnew.toFixed(6) })
+      this.state.items.push({ n: counter, fn: this.func(counter), acc: Math.abs(epsilon).toFixed(6), xM: xold.toFixed(6), fxM: xnew.toFixed(6) })
       counter++;
       xold = xnew;
     } while (Math.abs(epsilon) > eps && counter < mitr);

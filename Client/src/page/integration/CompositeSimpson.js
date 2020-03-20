@@ -13,7 +13,8 @@ class Composite_Simpson extends mom {
   render() {
     return (
       <div className="bisec">
-       <Template id={2}/>
+       <Template id={2} name="Composite Simpson Rule" message="Simpson's rule is a method for numerical integration, the numerical approximation of definite integrals.
+Simpson's rule also corresponds to the three-point Newton-Cotes quadrature rule."/>
       </div>
     );
   }

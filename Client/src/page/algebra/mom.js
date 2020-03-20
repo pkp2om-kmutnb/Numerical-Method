@@ -1,6 +1,6 @@
 import '../../App.css';
 import { Component } from 'react';
-import TestcaseAPI from '../../dataAPI';
+import TestcaseAPI from '../../TestcaseAPI';
 import Axios from 'axios'
 
 
@@ -169,11 +169,13 @@ class mom extends Component {
   }
 
   Answer = () => {
+
     if (this.state.n == 2) {
       let matrix = new Array(2);
       for (let i = 0; i < 2; i++) {
         matrix[i] = new Array(3);
       }
+
       matrix[0][0] = parseInt(this.state.func1)
       matrix[0][1] = parseInt(this.state.func2)
       matrix[0][2] = parseInt(this.state.func3)
@@ -238,7 +240,10 @@ class mom extends Component {
       this.setState({ matrix: this.state.matrix })
 
     }
-    this.findSolution()
+    if(this.state.n < 5 && this.state.n > 1)
+      this.findSolution()
+    else 
+      alert("Please Enter Size of Matrix 2-4")
   }
 
   findSolution = () => {

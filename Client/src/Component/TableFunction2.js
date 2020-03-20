@@ -13,7 +13,7 @@ const TableFunction = (props) => {
                     <th scope="col"> iteration </th>
                     <th scope="col"> x </th>
                     <th scope="col"> f(x) </th>
-                    <th scope="col"> accuracy</th>
+                    <th scope="col"> Error</th>
                 </tr>
 
             </thead>

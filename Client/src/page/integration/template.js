@@ -40,11 +40,13 @@ class Composite_Trapezoidal extends mom {
                 {this.renderAuthen(cookies.get('username')) ?
                     <table className="NavBodyImg2">
                         {/* MENU BOX*/}
-                        <Menubar title="Bisection" />
+                        <Menubar title={this.props.name} />
                         {/* Descip BOX*/}
                         <div className="myfontstye NavBoxText">
-                            <h2>Composite Trapezoidal Rule</h2>
+                            <h2>{this.props.name}</h2>
+                            <p>{this.props.message}</p>
                         </div>
+
                         {/* INPUT BOX*/}
                         <div class="form-group">
                             <form action="" class="form-group" onSubmit={this.handleSummit}>
@@ -85,7 +87,7 @@ class Composite_Trapezoidal extends mom {
                         <table>
                             {this.state.items == "" ? " " :
                                 <div class="myfontstye3">
-                                    <TableFunction  n={2} items={this.state.items} />
+                                    <TableFunction n={2} items={this.state.items} />
 
                                 </div>
                             }

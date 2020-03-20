@@ -116,10 +116,10 @@ class Backwardh extends mom {
                 {this.renderAuthen(cookies.get('username')) ?
                     <table className="NavBodyImg2">
                         {/* MENU BOX*/}
-                        <Menubar title="Backward First Degree" />
+                        <Menubar title={this.props.name} />
                         {/* Descip BOX*/}
                         <div className="myfontstye NavBoxText">
-                            <h2>Backward First Degree</h2>
+                            <h2>{this.props.name}</h2>
                         </div>
                         {/* INPUT BOX*/}
                         <div class="form-group">
