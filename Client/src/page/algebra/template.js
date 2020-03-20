@@ -31,11 +31,13 @@ class cramer extends algeMom {
     };
 
     gaussEliminate = (A) => {
-
+        //separate AX=B
         let n = A.length
         let B = new Array(n);
-        for (let k = 0; k < n; k++) 
+        for (let k = 0; k < n; k++)
             B[k] = A[k][n]
+
+        //solve
         for (let k = 0; k < n; k++) {
             for (let i = k + 1; i < n; i++) {
                 let temp = A[i][k] / A[k][k]
@@ -45,125 +47,129 @@ class cramer extends algeMom {
                 B[i] -= temp * B[k]
             }
         }
-        let x = new Array(n)
-        x[n - 1] = Math.round((B[n - 1] / A[n - 1][n - 1]) * 100) / 100
+        //answer 
+        let answer = new Array(n)
+        answer[n-1] = Math.round((B[n-1] / A[n-1][n-1]) * 100) / 100
         for (let i = n - 2; i >= 0; i--) {
             let sum = B[i];
             for (let j = i + 1; j < n; j++) {
-                sum -= A[i][j] * x[j]
+                sum -= A[i][j] * answer[j]
             }
-            x[i] = this.fix_point(sum / A[i][i])
+            answer[i] = sum / A[i][i]
         }
-        this.output(x)
+        this.output(answer)
     }
 
 
-    cramer = (A) => {
+    cramer = (matrix) => {
+        //separate AX=B
+        let n = matrix.length
+        let B = new Array(n);
+        for (let k = 0; k < n; k++)
+            B[k] = matrix[k][n]
+        let A = new Array(n);
+        for (let i = 0; i < n; i++)
+            A[i] = new Array(n);
+        for (let i = 0; i < this.state.n; i++)
+            for (let j = 0; j < this.state.n; j++)
+                A[i][j] = matrix[i][j]
 
-        let n = A.length
-        let right_side = new Array(n);
-        for (let k = 0; k < n; k++) 
-            right_side[k] = A[k][n]
-        let counter = 0;
-        let x = [];
-        let left_side = new Array(n);
-        for (let i = 0; i < n; i++) 
-            left_side[i] = new Array(n);
-        for (let i = 0; i < this.state.n; i++) 
-            for (let j = 0; j < this.state.n; j++) 
-                left_side[i][j] = A[i][j]
-        while (counter != this.state.n) {
-            let Matrix = JSON.parse(JSON.stringify(A));
-            let left_side_transpose = new Array(n);
-            for (let i = 0; i < n; i++)
-                left_side_transpose[i] = new Array(n);
+        //solve
+        let answer = [];
+        let col = 0;
+        while (col != this.state.n) {
+            let Matrix = JSON.parse(JSON.stringify(matrix));
+            // insert B to A 
             for (let i = 0; i < this.state.n; i++) {
                 for (let j = 0; j < this.state.n; j++) {
-                    if (j == counter) {
-                        Matrix[i][j] = right_side[i]
+                    if (j == col) {
+                        Matrix[i][j] = B[i]
                         break;
                     }
                 }
             }
+            //copy to Ax_transpose
+            let A_transpose = new Array(n);
+            for (let i = 0; i < n; i++)
+                A_transpose[i] = new Array(n);
             for (let i = 0; i < this.state.n; i++)
                 for (let j = 0; j < this.state.n; j++)
-                    left_side_transpose[i][j] = Matrix[i][j]
-            x.push(Math.round(math.det(left_side_transpose)) / Math.round(math.det(left_side)))
-            counter++;
+                    A_transpose[i][j] = Matrix[i][j]
+
+            //find determinant
+            answer.push(Math.round(math.det(A_transpose)) / Math.round(math.det(A)))
+            col++;
         }
-        this.output(x)
+        this.output(answer)
 
     }
 
-    lu = (A) => {
-        let n = A.length
+    lu = (matrix) => {
+        //separate AX=B
+        let n = matrix.length
         let B = new Array(n);
-        for (let k = 0; k < n; k++) {
-            B[k] = A[k][n]
-        }
-        let x = [];
-        let left_side = new Array(n);
-        for (let i = 0; i < n; i++) {
-            left_side[i] = new Array(n);
-        }
-        for (let i = 0; i < this.state.n; i++) {
-            for (let j = 0; j < this.state.n; j++) {
-                left_side[i][j] = A[i][j]
-            }
-        }
-        let decompose = math.lusolve(left_side, B)
+        for (let k = 0; k < n; k++)
+            B[k] = matrix[k][n]
+        let A = new Array(n);
+        for (let i = 0; i < n; i++)
+            A[i] = new Array(n);
+        for (let i = 0; i < this.state.n; i++)
+            for (let j = 0; j < this.state.n; j++)
+                A[i][j] = matrix[i][j]
+
+        //solve
+        let decompose = math.lusolve(A, B)
+        //answer
+        let answer = [];
         for (let i = 0; i < decompose.length; i++) {
-            x.push(this.fix_point(decompose[i]))
+            answer.push(decompose[i])
         }
-        this.output(x)
+        this.output(answer)
+    
     }
 
-    jordan = (A) => {
-        let n = A.length
+    jordan = (matrix) => {
+        //separate AX=B
+        let n = matrix.length
         let B = new Array(n);
         for (let k = 0; k < n; k++) {
-            B[k] = A[k][n]
+            B[k] = matrix[k][n]
         }
-        if (A[0][0] === 0) {
-            let tempRow = JSON.parse(JSON.stringify(A[0]));
-            let tempColumn = B[0];
-            A[0] = A[1];
-            A[1] = tempRow;
-            B[0] = B[1];
-            B[1] = tempColumn;
-        }
+        //Eliminate forward
         for (let k = 0; k < n; k++) {
             for (let i = k + 1; i < n; i++) {
-                let temp = A[i][k] / A[k][k];
+                let temp = matrix[i][k] / matrix[k][k];
                 for (let j = k; j < n; j++) {
-                    A[i][j] -= temp * A[k][j];
+                    matrix[i][j] -= temp * matrix[k][j];
                 }
                 B[i] -= temp * B[k];
             }
         }
+        //Eliminate backward
         for (let k = n - 1; k >= 0; k--) {
             for (let i = k; i >= 0; i--) {
                 if (i === k) {
-                    let temp = 1 / A[i][k];
+                    let temp = 1 / matrix[i][k];
                     for (let j = 0; j < n; j++) {
-                        A[i][j] *= temp;
+                        matrix[i][j] *= temp;
                     }
                     B[i] *= temp;
                 }
                 else {
-                    let temp = A[i][k] / A[k][k];
+                    let temp = matrix[i][k] / matrix[k][k];
                     for (let j = 0; j < n; j++) {
-                        A[i][j] -= temp * A[k][j];
+                        matrix[i][j] -= temp * matrix[k][j];
                     }
-                    B[i] = B[i] - temp * B[k];
+                    B[i] -= temp * B[k];
                 }
             }
         }
-        let x = [];
+        //answer
+        let answer = [];
         for (let i = 0; i < n; i++) {
-            x.push(this.fix_point(B[i]));
+            answer.push(B[i]);
         }
-        this.output(x)
+        this.output(answer)
     }
 
 

@@ -36,7 +36,7 @@ class Backwardh extends mom {
         else
             y = (this.func(x) - 4 * this.func(x - (1 * h)) + 6 * this.func(x - (2 * h)) - 4 * this.func(x - (3 * h)) + this.func(x - (4 * h))) / Math.pow(h, 4)
 
-        this.state.items.push({ ans: y })
+        this.state.items.push({ ans: y.toFixed(6) })
         this.setState({ items: this.state.items })
     }
     backwardh2(x, h, degree) {
@@ -49,7 +49,7 @@ class Backwardh extends mom {
         else if (degree == 4)
             y = (3 * this.func(x) - 14 * this.func(x - (1 * h)) + 26 * this.func(x - (2 * h)) - 24 * this.func(x - (3 * h)) + 11 * this.func(x - (4 * h)) - 2 * this.func(x - (5 * h))) / Math.pow(h, 4)
 
-        this.state.items.push({ ans: y })
+        this.state.items.push({ ans: y.toFixed(6) })
         this.setState({ items: this.state.items })
 
     }
@@ -63,7 +63,7 @@ class Backwardh extends mom {
         else if (degree == 4)
             y = (this.func(x + (2 * h)) - 4 * this.func(x + (1 * h)) + 6 * this.func(x) - 4 * this.func(x - (1 * h)) + this.func(x - (2 * h))) / Math.pow(h, 4)
 
-        this.state.items.push({ ans: y })
+        this.state.items.push({ ans: y.toFixed(6) })
         this.setState({ items: this.state.items })
 
     }
@@ -78,7 +78,7 @@ class Backwardh extends mom {
             y = (-this.func(x + (3 * h)) + 12 * this.func(x + (2 * h)) - 39 * this.func(x + (1 * h)) + 56 * this.func(x) - 39 * this.func(x - (1 * h)) + 12 * this.func(x - (2 * h)) + this.func(x - (3 * h))) / (6 * Math.pow(h, 4))
 
 
-        this.state.items.push({ ans: y })
+        this.state.items.push({ ans: y.toFixed(6) })
         this.setState({ items: this.state.items })
 
     }
@@ -92,7 +92,7 @@ class Backwardh extends mom {
         else if (degree == 4)
             y = (this.func(x + (4 * h)) - 4 * this.func(x + (3 * h)) + 6 * this.func(x + (2 * h)) - 4 * this.func(x + (1 * h)) + this.func(x)) / Math.pow(h, 4)
 
-        this.state.items.push({ ans: y })
+        this.state.items.push({ ans: y.toFixed(6) })
         this.setState({ items: this.state.items })
 
     }
@@ -106,7 +106,7 @@ class Backwardh extends mom {
         else if (degree == 4)
             y = (-2 * this.func(x + (5 * h)) + 11 * this.func(x + (4 * h)) - 24 * this.func(x + (3 * h)) + 26 * this.func(x + (2 * h)) - 14 * this.func(x + (1 * h)) + 3 * this.func(x)) / Math.pow(h, 4)
 
-        this.state.items.push({ ans: y })
+        this.state.items.push({ ans: y.toFixed(6) })
         this.setState({ items: this.state.items })
 
     }

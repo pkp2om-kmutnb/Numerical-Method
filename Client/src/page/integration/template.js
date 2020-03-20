@@ -20,7 +20,7 @@ class Composite_Trapezoidal extends mom {
         var I = (h / 3) * (this.func(a) + this.func(b) + 4 * this.sum(1, n, 2 * h) + 2 * this.sum(2, n, 2 * h))
         var real = this.Integrate(a, b)
         var error = Math.round(Math.abs((real - I) / real) * 100) / 100
-        this.state.items.push({ ans: I, acc: error })
+        this.state.items.push({ ans: I.toFixed(6), acc: error.toFixed(6) })
         this.setState({ items: this.state.items })
 
     }
@@ -30,7 +30,7 @@ class Composite_Trapezoidal extends mom {
         var I = (h / 2) * (this.func(a) + this.func(b) + 2 * this.sum(n, h))
         var real = this.Integrate(a, b)
         var error = Math.round(Math.abs((real - I) / real) * 100) / 100
-        this.state.items.push({ ans: I, acc: error })
+        this.state.items.push({ ans: I.toFixed(6), acc: error.toFixed(6) })
         this.setState({ items: this.state.items })
     }
 

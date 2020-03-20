@@ -18,8 +18,6 @@ class cramer extends algeMom {
     };
 
 
-
-
     render() {
         return (
             <div className="cramer">

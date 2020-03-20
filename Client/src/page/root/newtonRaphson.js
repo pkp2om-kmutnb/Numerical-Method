@@ -22,6 +22,7 @@ class newtonRaphson extends rootMom {
       this.serach(4)
     }
     this.setState({ rememberMe: event.target.checked });
+    
   };
 
   newton = (a, mitr, eps) => {
@@ -32,7 +33,7 @@ class newtonRaphson extends rootMom {
     do {
       xnew = xold - (this.func(xold) / this.funcDiff(xold));
       epsilon = this.error(xnew, xold)
-      this.state.items.push({ n: counter, fn: this.func(counter), acc: Math.abs(epsilon).toFixed(6), xM: xold.toFixed(6), fxM: xnew.toFixed(6) })
+      this.state.items.push({ n: counter, fn: this.func(counter), acc: Math.abs(epsilon).toFixed(6), xM: xold.toFixed(6).toFixed(6), fxM: xnew.toFixed(6) })
       counter++;
       xold = xnew;
     } while (Math.abs(epsilon) > eps && counter < mitr);
@@ -70,7 +71,7 @@ class newtonRaphson extends rootMom {
                     <input class="form-control floatNumber" id="ex4" type="Number" onChange={e => { this.setState({ eps: e.target.value }) }} value={this.state.eps} />
                   </div>
                   <div class="col-xs-4 NavBox2">
-                    <label for="ex5">Maximum Iterations</label>
+                    <label for="ex5">Maximum Iterations(1-100)</label>
                     <input class="form-control floatNumber" id="ex5" type="Number" onChange={e => { this.setState({ mitr: e.target.value }) }} value={this.state.mitr} />
                   </div>
                 </div>

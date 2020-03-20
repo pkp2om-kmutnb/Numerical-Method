@@ -8,65 +8,46 @@ import Login from '../Secure/login';
 import Chart_graph from '../../Component/chart';
 const cookies = new Cookies();
 class falsePosition extends rootMom {
-  constructor(props) {
-    super(props)
-    if(cookies.get('temp')=='true'){
-      //this.wait(4000)
-      {cookies.set('temp', 'false', { path: '/falsePosition' })}
-     }
-  }
+
   showAnswer = () => {
-    this.falsePos(this.state.a,this.state.b,this.state.mitr,this.state.eps)
+    this.false_position(this.state.a,this.state.b,this.state.mitr,this.state.eps)
   }
   handleCheck = event => {
     if (event.target.checked) {
       this.serach(2)
     }
     this.setState({ rememberMe: event.target.checked });
+
   };
 
-
-  falsePos = (a,b,mitr,eps) => {
-    let cold = a * 1.0;
-    let counter = 0
-    let fa =this.func(a)
-    let fb =this.func(b)
-    let fc =this.func(cold)
-    this.state.items.push({ n: counter, xL: a, xR: b, xM: cold, fxL: fa, fxR: fb, fxM: fc,fn:this.func(counter)})
-    counter++
-    
-    let cnew = (a * fb - b * fa) / (fb - fa);
-    if (fc * fa < 0)
-      a = cnew
-    else
-      b = cnew
-    fa =this.func(a)
-    fb =this.func(b)
-    fc =this.func(cold)
-    this.state.items.push({ n: counter, xL: a, xR: b, xM: cold, fxL: fa, fxR: fb, fxM: fc,fn:this.func(counter)})
-    counter++
-    while (counter < mitr) {
-      fa =this.func(a)
-      fb =this.func(b)
-      if (fb - fa === 0)
-        break
-      cnew = ((a * fb) - (b * fa)) / (fb - fa);
-      fc =this.func(cnew)
-      if (fc * fa < 0)
-        a = cnew
-      else
-        b = cnew
-      let accuraccy = this.error(cnew,cold)
-      if (accuraccy < eps)
-        break
-        cold=cnew
-      //console.log(c)
-      this.state.items.push({ n: counter , xL: a, xR: b, xM: cold, fxL: fa, fxR: fb, fxM: fc, acc: accuraccy,fn:this.func(counter)})
-      counter++
+  false_position(xl, xr,mitr,eps) {
+    var neg = false;
+    var xi = 0;
+    var epsilon= 0;
+    var counter=0;
+    if (this.func(xl) < this.func(xr)) {
+        neg = true;
     }
+    do{ 
+        xi = (xl*this.func(xr) - xr*this.func(xl))/(this.func(xr)-this.func(xl));
+        if (this.func(xi)*this.func(xr) < 0) {
+            epsilon = this.error(xi,xr);
+            if (neg) xl = xi;
+            else xr = xi;
+        } 
+        else {
+            epsilon = this.error(xi,xl);
+            if (neg) xr = xi;  
+            else xl = xi;
+        }   
+        this.state.items.push({ n: counter, xL: xl.toFixed(6), xR: xr.toFixed(6), xM: xi.toFixed(6), fxL: this.func(xl).toFixed(6), fxR: this.func(xr).toFixed(6), fxM: this.func(xi).toFixed(6),fn:this.func(counter)})
+        counter++;  
+    }while(Math.abs(epsilon)>eps && counter < mitr);
     this.setState({ items: this.state.items })
-    
-  }
+
+}
+
+
 
   render() {
     return (
@@ -105,7 +86,7 @@ class falsePosition extends rootMom {
                 </div>
 
                 <div class="col-xs-4 NavBox2">
-                  <label for="ex5">Maximum Iterations</label>
+                  <label for="ex5">Maximum Iterations(1-100)</label>
                   <input class="form-control floatNumber" id="ex5" type="Number" onChange={e => { this.setState({ mitr: e.target.value }) }} value={this.state.mitr} />
                 </div>
 

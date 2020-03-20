@@ -3,7 +3,7 @@ import '../../App.css';
 //import { Component } from 'react';
 import Menubar from '../../Component/Menubar';
 import rootMom from './mom';
-import TableFunction from '../../Component/TableFunction';
+import TableFunction from '../../Component/TableFunction2';
 import Cookies from 'universal-cookie';
 import databases from '../Secure/databases';
 import Login from '../Secure/login';
@@ -11,18 +11,10 @@ import Chart_graph from '../../Component/chart';
 
 const cookies = new Cookies();
 class secant extends rootMom {
-  constructor(props) {
-    super(props)
-    if (cookies.get('temp') == 'true') {
-      //this.wait(4000)
-      { cookies.set('temp', 'false', { path: '/secant' }) }
-    }
-  }
+
   showAnswer = () => {
     this.secant(this.state.a, this.state.b, this.state.mitr, this.state.eps)
   }
-
-
   handleCheck = event => {
     if (event.target.checked) {
       this.serach(5)
@@ -30,32 +22,24 @@ class secant extends rootMom {
     this.setState({ rememberMe: event.target.checked });
   };
 
-
-  secant = (a, b, mitr, eps) => {
-    let counter = 0
-    let fa = this.func(a)
-    let fb = this.func(b)
-    let c = b - (fb / ((fb - fa) / (b - a)))
-    let fc = this.func(c)
-    this.state.items.push({ n: counter, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, fn: this.func(counter) })
-    counter++
-    a = b
-    b = c
-    while (counter < mitr) {
-      let e = c
-      fa = this.func(a)
-      fb = this.func(b)
-      c = b - (fb / ((fb - fa) / (b - a)))
-      fc = this.func(c)
-      let fcron = this.error(c, e)
-      if (fcron < eps) break
-      this.state.items.push({ n: counter, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, acc: fcron, fn: this.func(counter) })
-      a = b
-      b = c
-      counter++
-    }
+  secant(x0, x1, mitr, eps) {
+    var x = [], y = 0, epsilon = 0;
+    var counter = 1, i = 1;
+    x.push(x0);
+    x.push(x1);
+    this.state.items.push({ n: counter, xM: x0, fxM: this.func(x0), fn: this.func(counter) })
+    counter++;
+    this.state.items.push({ n: counter, xM: x1, fxM: this.func(x1), fn: this.func(counter) })
+    counter++;
+    do {
+      y = x[i] - (this.func(x[i]) * ((x[i] - x[i - 1]))) / (this.func(x[i]) - this.func(x[i - 1]));
+      x.push(y);
+      epsilon = this.error(y, x[i]);
+      this.state.items.push({ n: counter, xM: y.toFixed(6), fxM: this.func(y).toFixed(6), fn: this.func(counter), acc: Math.abs(epsilon).toFixed(6) })
+      counter++;
+      i++;
+    } while (Math.abs(epsilon) > eps && counter < mitr);
     this.setState({ items: this.state.items })
-
   }
 
   render() {
@@ -92,7 +76,7 @@ class secant extends rootMom {
                     <input class="form-control floatNumber" id="ex4" type="Number" onChange={e => { this.setState({ eps: e.target.value }) }} value={this.state.eps} />
                   </div>
                   <div class="col-xs-4 NavBox2">
-                    <label for="ex3">Maximum Iterations</label>
+                    <label for="ex3">Maximum Iterations(1-100)</label>
                     <input class="form-control floatNumber" id="ex5" type="Number" onChange={e => { this.setState({ mitr: e.target.value }) }} value={this.state.mitr} />
                   </div>
 

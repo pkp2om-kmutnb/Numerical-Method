@@ -8,34 +8,27 @@ import Cookies from 'universal-cookie';
 import databases from '../Secure/databases';
 import Chart_graph from '../../Component/chart';
 const cookies = new Cookies();
-var algebra = require('algebra.js');
-var Equation = algebra.Equation
+let algebra = require('algebra.js');
+let Equation = algebra.Equation
 class onepoint extends rootMom {
-  constructor(props) {
-    super(props)
-    if (cookies.get('temp') == 'true') {
-      //this.wait(4000)
-      { cookies.set('temp', 'false', { path: '/onepoint' }) }
-    }
-  }
+  
   showAnswer = () => {
-    this.onepoint()
-    //this.secant(this.state.a, this.state.b, this.state.mitr,this.state.eps)
+    this.onepoint(this.state.a, this.state.b, this.state.mitr,this.state.eps)
   }
 
 
-  onepoint = () => {
-    var xold = this.state.a
-    var epsilon= parseFloat(0.000000);
-    var xnew = 0;
-    var counter = 0;
+  onepoint = (a, b, mitr,eps) => {
+    let xold = a
+    let epsilon= 0;
+    let xnew = 0;
+    let counter = 0;
     do {
       xnew = this.func(xold);
       epsilon = this.error(xnew, xold)
       this.state.items.push({ n: counter, xM: xold.toFixed(6),fxM: xnew.toFixed(6), acc: Math.abs(epsilon).toFixed(6), fn: this.func(counter) })
       counter++;
       xold = xnew;
-    } while (Math.abs(epsilon) > this.state.eps && counter < this.state.mitr);
+    } while (Math.abs(epsilon) > eps && counter < mitr);
     this.setState({ items: this.state.items })
   }
 
@@ -76,7 +69,7 @@ class onepoint extends rootMom {
                     <input class="form-control floatNumber" id="ex4" type="Number" onChange={e => { this.setState({ eps: e.target.value }) }} value={this.state.eps} />
                   </div>
                   <div class="col-xs-4 NavBox2">
-                    <label for="ex5">Maximum Iterations</label>
+                    <label for="ex5">Maximum Iterations(1-100)</label>
                     <input class="form-control floatNumber" id="ex5" type="Number" onChange={e => { this.setState({ mitr: e.target.value }) }} value={this.state.mitr} />
                   </div>
                 </div>

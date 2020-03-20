@@ -3,7 +3,6 @@ import React from '../../node_modules/react';
 
 const TableFunctionRainbow = (props) => {
     const { n, xL,xM,xR,fxL,fxR,fxM, acc ,fn} = props.items;
-    
     return (
         <tr className="myfontstye3">
             <td>{n}</td>

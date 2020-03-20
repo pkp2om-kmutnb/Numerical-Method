@@ -11,17 +11,7 @@ const cookies = new Cookies();
 var algebra = require('algebra.js');
 var Equation = algebra.Equation;
 class Graph extends rootMom {
-  constructor(props) {
-    super(props)
-    if(cookies.get('temp')=='true'){
-      //this.wait(4000)
-      {cookies.set('temp', 'false', { path: '/Graph' })}
-     }
-  }
-
-
   showAnswer = () => {
-    
     this.graph(this.state.a, this.state.b, this.state.mitr)
   }
 
@@ -30,15 +20,16 @@ class Graph extends rootMom {
       this.serach(1)
     }
     this.setState({ rememberMe: event.target.checked });
+    
   };
 
 
-  graph = (a, b, mitr) => {
-    let dis = (b - a) / mitr * 1.0
+  graph = (xl, xr, mitr) => {
+    let dis = (xr - xl) / mitr * 1.0
     for (let counter = 1; counter < mitr; counter++) {
-      let old_a = a
-      a += dis
-      this.state.items.push({ n: counter, xM: old_a, fxM: this.func(a) ,fn: this.func(counter) , acc : this.error(a,old_a)})
+      let temp = xl
+      xl += dis
+      this.state.items.push({ n: counter, xM: temp.toFixed(6), fxM: this.func(xl).toFixed(6) ,fn: this.func(counter) , acc : this.error(xl,temp).toFixed(6)})
     }
     this.setState({ items: this.state.items })
   }
@@ -74,7 +65,7 @@ class Graph extends rootMom {
                   <input class="form-control floatNumber" id="ex3" type="Number" onChange={e => { this.setState({ b: e.target.value }) }} value={this.state.b} />
                 </div>
                 <div class="col-xs-4 NavBox2">
-                  <label for="ex5">Maximum Iterations</label>
+                  <label for="ex5">Maximum Iterations(1-100)</label>
                   <input class="form-control floatNumber" id="ex5" type="Number" onChange={e => { this.setState({ mitr: e.target.value }) }} value={this.state.mitr} />
                 </div>
                 <div class="col-xs-4 NavBox2">

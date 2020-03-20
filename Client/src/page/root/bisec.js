@@ -8,55 +8,43 @@ import Cookies from 'universal-cookie';
 import Login from '../Secure/login';
 
 const cookies = new Cookies();
-var algebra = require('algebra.js');
-var Fraction = algebra.Fraction;
-var Expression = algebra.Expression;
-var Equation = algebra.Equation;
+let algebra = require('algebra.js');
+let Fraction = algebra.Fraction;
+let Expression = algebra.Expression;
+let Equation = algebra.Equation;
 
 class bisec extends rootMom {
-  constructor(props) {
-    super(props)
-    if (cookies.get('temp') == 'true') {
-      //this.wait(4000)
-      { cookies.set('temp', 'false', { path: '/bisec' }) }
-    }
-  }
+
   showAnswer = () => {
     this.bisection(this.state.a, this.state.b, this.state.mitr, this.state.eps)
 
   }
-  bisection = (a, b, mitr, eps) => {
-    let counter = 0
-    var c = a;
-    c = (a + b) / 2;
-    let fc = this.func(c)
-    let fa = this.func(a)
-    let fb = this.func(b)
-    this.state.items.push({ n: counter, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, fn: this.func(counter) })
-    counter++
-    if (fc * fa < 0) b = c
-    else a = c
-    fc = this.func(c)
-    fa = this.func(a)
-    fb = this.func(b)
-    this.state.items.push({ n: counter, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fc, fn: this.func(counter) })
-    counter++
-    while (counter < mitr) {
-      c = (a + b) / 2;
-      let fcnew = this.func(c)
-      fa = this.func(a)
-      fb = this.func(b)
-      if (c == 0 || fcnew == 0) break
-      else if (fcnew * fa < 0) b = c
-      else a = c
-      let accuraccy = this.error(fcnew, fc)
-      this.state.items.push({ n: counter, xL: a, xR: b, xM: c, fxL: fa, fxR: fb, fxM: fcnew, acc: accuraccy, fn: this.func(counter) })
-      counter++
-      fc = fcnew
-      if (Math.abs(fcnew - fa) < eps)  break
-      counter++
+
+  bisection(xl, xr, mitr, eps) {
+    let neg = false;
+    let xm = 0;
+    let sum = 0;
+    let counter = 0;
+    if (this.func(xl) < this.func(xr)) {
+      neg = true;
     }
+    do {
+      xm = (xl + xr) / 2;
+      if (this.func(xm) * this.func(xr) < 0) {
+        sum = this.error(xm, xr);
+        if (neg) xl = xm;
+        else xr = xm;
+      }
+      else {
+        sum = this.error(xm, xl);
+        if (neg) xr = xm;
+        else xl = xm;
+      }
+      this.state.items.push({ n: counter, xL: xl.toFixed(6), xR: xr.toFixed(6), xM: xm.toFixed(6), fxL: this.func(xl).toFixed(6), fxR: this.func(xr).toFixed(6), fxM: this.func(xm).toFixed(6),fn:this.func(counter).toFixed(6),acc:Math.abs(sum).toFixed(6)})
+      counter++;
+    } while (Math.abs(sum) > eps && counter<mitr);
     this.setState({ items: this.state.items })
+
   }
 
   handleCheck = (event) => {
@@ -103,7 +91,7 @@ class bisec extends rootMom {
                     <input class="form-control floatNumber" id="ex4" type="Number" onChange={e => { this.setState({ eps: e.target.value }) }} value={this.state.eps} />
                   </div>
                   <div class="col-xs-4 NavBox2">
-                    <label for="ex5">Maximum Iterations</label>
+                    <label for="ex5">Maximum Iterations (1-100)</label>
                     <input class="form-control floatNumber" id="ex5" type="Number" onChange={e => { this.setState({ mitr: e.target.value }) }} value={this.state.mitr} />
                   </div>
                 </div>

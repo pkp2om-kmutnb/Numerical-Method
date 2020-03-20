@@ -31,6 +31,22 @@ testcaseRouter.get('/:id',(req,res)=>{
     });
 });
 
+
+testcaseRouter.get('/:name_type/:name_method',(req,res)=>{
+    testcase.find({ name_type : req.params.name_type ,name_method : req.params.name_method },(err,response)=>{
+        if(err)
+            res.status(500).json({message:{
+                msgBody : "Unable to get Testcase",
+                msgError : true
+            }});
+        else{
+            res.status(200).json({response});
+        }
+            
+    });
+});
+
+
 testcaseRouter.post('/',(req,res)=>{
     console.log(Testcase)
     const Testcase = new testcase(req.body[0]);
