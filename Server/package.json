@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index --ignore",
     "server": "nodemon index --ignore",
-    "start-docker":"node server --ignore",
+    "start-docker": "node server --ignore",
     "server-docker": "nodemon server --ignore",
     "server-install": "npm install"
   },

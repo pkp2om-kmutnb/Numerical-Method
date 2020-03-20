@@ -4,6 +4,12 @@
 docker-compose up --build <br/>
 
 <br/> 
+#Run Project<br/> 
+open install.bat
+open Run.bat
+
+
+<br/> 
 #First Time<br/> 
 git config --global user.email " "<br/> 
 git config --global user.name " "<br/> 
