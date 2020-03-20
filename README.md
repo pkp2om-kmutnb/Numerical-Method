@@ -14,7 +14,6 @@ open Run.bat<br/>
 git config --global user.email " "<br/> 
 git config --global user.name " "<br/> 
 <br/> 
-<br/> 
 git init <br/>
 git add . <br/> 
 git commit -m "version 2" <br/>
