@@ -5,8 +5,8 @@ docker-compose up --build <br/>
 
 <br/> 
 #Run Project<br/> 
-open install.bat
-open Run.bat
+open install.bat<br/> 
+open Run.bat<br/> 
 
 
 <br/> 
