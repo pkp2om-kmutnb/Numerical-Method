@@ -2,27 +2,45 @@
   text-align: center;
 }
 
-#circle {
-  position:  relative;
-  left: 35%;
-  transform: translate(-50%,-50%);
-  width: 36px;
-  height: 36px;	
-}
-
-
 .loader {
-width: calc(100% - 0px);
-height: calc(100% - 0px);
-border: 2px solid #162534;
-border-top: 2px solid #09f;
-border-radius: 100%;
-animation: rotate 5s linear infinite;
+  position:  absolute;
+  left:  50%;
+  top:  50%;
+  transform:  translate(-50%, -50%);
 }
 
-@keyframes rotate {
-  100% {transform: rotate(360deg);}
-  } 
+.loader h1 {
+  background-image: url(http://res.cloudinary.com/imranfakhrul/image/upload/v1524761072/ryba2.png);
+  margin:  0;
+  color:  rgba(255, 255, 255, 0.2);
+  font-size: 70px;
+  padding: 61px;
+  animation: animate 1s linear infinite;
+  background-repeat-y:  no-repeat;
+  background-repeat-x:  repeat;
+  -webkit-background-clip: text;
+}
+
+@keyframes animate{
+  0%{
+      background-position: left 0 top -30px;
+  }
+  20%{
+      background-position: left 800px top -20px;
+  }
+  40%{
+      background-position: left 1800px top -10px;
+  }
+  60%{
+      background-position: left 24000px top 0px;
+  }
+  80%{
+      background-position: left 3400px top -10px;
+  }
+  100%{
+      background-position: left 4400px top -20px;
+  }
+}
 
 .NavBar {
   

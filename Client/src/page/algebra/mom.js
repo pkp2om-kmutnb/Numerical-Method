@@ -306,6 +306,6 @@ class mom extends Component {
 }
 
 export default mom;
-var url1 = 'https://raw.githubusercontent.com/SlayerHACK/hacker/master/linear2D.json'
-var url2 = 'https://raw.githubusercontent.com/SlayerHACK/hacker/master/linear3D.json'
-var url3 = 'https://raw.githubusercontent.com/SlayerHACK/hacker/master/linear4D.json'
+var url1 = 'https://raw.githubusercontent.com/pkp2om-kmutnb/Data-Provider/master/Linear%20Algebra%202D.json'
+var url2 = 'https://raw.githubusercontent.com/pkp2om-kmutnb/Data-Provider/master/Linear%20Algebra%203D.json'
+var url3 = 'https://raw.githubusercontent.com/pkp2om-kmutnb/Data-Provider/master/Linear%20Algebra%204D.json'

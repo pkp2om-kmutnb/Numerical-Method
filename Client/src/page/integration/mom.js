@@ -116,4 +116,4 @@ class mom extends Component {
 
 }
 export default mom;
-var url = 'https://raw.githubusercontent.com/SlayerHACK/hacker/master/integration.json'
+var url = 'https://raw.githubusercontent.com/pkp2om-kmutnb/Data-Provider/master/Integration.json'
