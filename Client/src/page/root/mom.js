@@ -5,7 +5,7 @@ import Axios from 'axios'
 import TestcaseAPI from '../../TestcaseAPI';
 import { create, all } from 'mathjs'
 const math = create(all)
-var algebra = require('algebra.js');
+let algebra = require('algebra.js');
 class mom extends Component {
   constructor(props) {
     super(props)
@@ -33,7 +33,7 @@ class mom extends Component {
       if (data == "ok") {
         TestcaseAPI.getTestcaseId(index).then(data => {
           if (data[0] != '<') {
-            var Data = JSON.parse(data)
+            let Data = JSON.parse(data)
             Data = Data.response[0].datas[0]
             this.setState({ a: Data.xL })
             this.setState({ b: Data.xR })
@@ -61,13 +61,13 @@ class mom extends Component {
   }
 
   funcDiff(X) {
-    var eqution = math.derivative(this.state.equ, 'x');
+    let eqution = math.derivative(this.state.equ, 'x');
     let scope = { x: parseFloat(X) };
     return eqution.eval(scope);
   }
 
   func = (X) => {
-    var eqution = math.compile(this.state.equ);
+    let eqution = math.compile(this.state.equ);
     let scope = { x: parseFloat(X) };
     return eqution.eval(scope);
   }
@@ -91,8 +91,8 @@ class mom extends Component {
   }
 
   wait = (ms) => {
-    var start = new Date().getTime();
-    var end = start;
+    let start = new Date().getTime();
+    let end = start;
     while (end < start + ms) {
       end = new Date().getTime();
     }
@@ -125,39 +125,39 @@ class mom extends Component {
 
   saveThis = (id) => {
     if(id == 1){
-      var TestCase = [{  
+      let TestCase = [{  
         index :"0" ,name_type : "root", name_method:"bisection" , 
-        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.eps, Maximum_Iterations : this.state.mitr }]
         }]
         TestcaseAPI.createTestcase(TestCase)
     }else if(id == 2){
-      var TestCase = [{  
+      let TestCase = [{  
         index :"1" ,name_type : "root", name_method:"Graphical" , 
-        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.eps, Maximum_Iterations : this.state.mitr }]
         }]
         TestcaseAPI.createTestcase(TestCase)
     }else if(id == 3){
-      var TestCase = [{  
+      let TestCase = [{  
         index :"2" ,name_type : "root", name_method:"FalsePosition" , 
-        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.eps, Maximum_Iterations : this.state.mitr }]
         }]
         TestcaseAPI.createTestcase(TestCase)
     }else if(id == 4){
-      var TestCase = [{  
+      let TestCase = [{  
         index :"3" ,name_type : "root", name_method:"OnePointItration" , 
-        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.eps, Maximum_Iterations : this.state.mitr }]
         }]
         TestcaseAPI.createTestcase(TestCase)
     }else if(id == 5){
-      var TestCase = [{  
+      let TestCase = [{  
         index :"4" ,name_type : "root", name_method:"NewtonRaphson" , 
-        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.eps, Maximum_Iterations : this.state.mitr }]
         }]
         TestcaseAPI.createTestcase(TestCase)
     }else if(id == 6){
-      var TestCase = [{  
+      let TestCase = [{  
         index :"5" ,name_type : "root", name_method:"Secant" , 
-        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.eps, Maximum_Iterations : this.state.mitr }]
         }]
         TestcaseAPI.createTestcase(TestCase)
     }
@@ -167,4 +167,4 @@ class mom extends Component {
 
 }
 export default mom;
-var url = 'https://raw.githubusercontent.com/pkp2om-kmutnb/Data-Provider/master/Root%20of%20Equation.json'
+let url = 'https://raw.githubusercontent.com/pkp2om-kmutnb/Data-Provider/master/Root%20of%20Equation.json'
