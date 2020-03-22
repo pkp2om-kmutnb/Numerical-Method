@@ -18,7 +18,7 @@ class mom extends Component {
       items: [],
       TestCase: [],
       rememberMe: false,
-      WhoYouAre: 0
+      rememberMeSvae: false
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -122,6 +122,47 @@ class mom extends Component {
 
   showAnswer = () => {
   }
+
+  saveThis = (id) => {
+    if(id == 1){
+      var TestCase = [{  
+        index :"0" ,name_type : "root", name_method:"bisection" , 
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        }]
+        TestcaseAPI.createTestcase(TestCase)
+    }else if(id == 2){
+      var TestCase = [{  
+        index :"1" ,name_type : "root", name_method:"Graphical" , 
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        }]
+        TestcaseAPI.createTestcase(TestCase)
+    }else if(id == 3){
+      var TestCase = [{  
+        index :"2" ,name_type : "root", name_method:"FalsePosition" , 
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        }]
+        TestcaseAPI.createTestcase(TestCase)
+    }else if(id == 4){
+      var TestCase = [{  
+        index :"3" ,name_type : "root", name_method:"OnePointItration" , 
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        }]
+        TestcaseAPI.createTestcase(TestCase)
+    }else if(id == 5){
+      var TestCase = [{  
+        index :"4" ,name_type : "root", name_method:"NewtonRaphson" , 
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        }]
+        TestcaseAPI.createTestcase(TestCase)
+    }else if(id == 6){
+      var TestCase = [{  
+        index :"5" ,name_type : "root", name_method:"Secant" , 
+        datas:[{ Root : this.state.equ, xL : this.state.a, xR : this.state.b , Epsilon:this.state.equ.eps, Maximum_Iterations : this.state.mitr }]
+        }]
+        TestcaseAPI.createTestcase(TestCase)
+    }
+    
+}
 
 
 }

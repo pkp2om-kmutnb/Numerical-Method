@@ -3,8 +3,7 @@ import './App.css';
 import Axios from 'axios'
 import TestcaseAPI from './TestcaseAPI';
 import { create, all } from 'mathjs'
-const math = create(all)
-var algebra = require('algebra.js');
+
 
 
 class mom extends React.Component {
@@ -22,7 +21,10 @@ class mom extends React.Component {
 
    handleSummit = (event) => {
       event.preventDefault();
-      var TestCase = [{ index: "0", name_type: "root", name_method: "bisection", datas: [{ "Root": "2x^3-x^2+2", "xL": "-2", "xR": "2", "Epsilon": "0.01", "Maximum_Iterations": "12" }] }]
+      var TestCase = [{  
+      index :"0" ,name_type : "root", name_method:"bisection" , 
+      datas:[{ Root : "2x^3-x^2+2", xL : "-2", xR : "2", Epsilon: "0.01", Maximum_Iterations : "12" }]
+      }]
       console.log(TestCase)
       TestcaseAPI.createTestcase(TestCase)
    };

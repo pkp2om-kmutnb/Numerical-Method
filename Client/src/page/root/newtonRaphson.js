@@ -39,6 +39,13 @@ class newtonRaphson extends rootMom {
     this.setState({ items: this.state.items })
   }
 
+  handleCheckSave = (event) => {
+    if (event.target.checked) {
+      this.saveThis(6)
+    }
+    this.setState({ rememberMeSvae: event.target.checked });
+  };
+
   render() {
     return (
       <div className="newtonRaphson">
@@ -83,6 +90,10 @@ class newtonRaphson extends rootMom {
               <div class="slice NavBox2">
                 <input type="checkbox" checked={this.state.rememberMe}
                   onChange={this.handleCheck} />Auto
+					      </div>
+                <div class="slice NavBox2">
+                <input type="checkbox" checked={this.state.rememberMeSave}
+                  onChange={this.handleCheckSave} />Save
 					      </div>
             </div>
             <table>

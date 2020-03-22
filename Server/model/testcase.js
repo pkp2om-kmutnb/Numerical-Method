@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const testcaseSchema = new Schema({
     index :{
         type : String,
-        required : true
+        required : true,
+        unique: true
     },
     name_type :{
         type : String,

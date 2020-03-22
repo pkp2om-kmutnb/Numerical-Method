@@ -41,6 +41,12 @@ class secant extends rootMom {
     } while (Math.abs(epsilon) > eps && counter < mitr);
     this.setState({ items: this.state.items })
   }
+  handleCheckSave = (event) => {
+    if (event.target.checked) {
+      this.saveThis(5)
+    }
+    this.setState({ rememberMeSvae: event.target.checked });
+  };
 
   render() {
     return (
@@ -86,13 +92,15 @@ class secant extends rootMom {
                     <label for="ex6"></label>
                     <button type="submzit" class="btn btn-primary" >Excute</button>
                   </div>
-
-
                 </div>
               </form>
               <div class="slice NavBox2">
                 <input type="checkbox" checked={this.state.rememberMe}
                   onChange={this.handleCheck} />Auto
+					      </div>
+                <div class="slice NavBox2">
+                <input type="checkbox" checked={this.state.rememberMeSave}
+                  onChange={this.handleCheckSave} />Save
 					      </div>
             </div>
             <table>

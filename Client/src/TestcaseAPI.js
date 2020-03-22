@@ -23,11 +23,12 @@ export default {
     createTestcase : (Testcase)=>{
         console.log(JSON.stringify(Testcase))
         return fetch(`/Testcase`,
-            {method : 'post',
+            {
+            method : 'post',
             body: JSON.stringify(Testcase),
             headers : {
                 "Content-Type" : "application/json"
-            }}).then(res => res.text())
-                .then(text => text);
+            }}).then(res => res.json())
+            .then(data => data);
     }
 }

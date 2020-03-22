@@ -47,6 +47,15 @@ class bisec extends rootMom {
     this.setState({ rememberMe: event.target.checked });
   };
 
+  handleCheckSave = (event) => {
+    if (event.target.checked) {
+      this.saveThis(1)
+    }
+    this.setState({ rememberMeSvae: event.target.checked });
+  };
+
+  
+
   render() {
     return (
       <div className="bisec">
@@ -66,7 +75,7 @@ class bisec extends rootMom {
               <form action="" class="form-group" onSubmit={this.handleSummit}>
                 <div class="col-xs-4 NavBox3">
                   <label for="ex1">Function </label>
-                  <input type="text" class="form-control" id="ex1" placeholder="Ex. 2x^3-x^2+2" onChange={e => { this.setState({ equ: e.target.value }) }} value={this.state.equ} />
+                  <input type="text" class="form-control" id="ex1" placeholder="Ex. x^3-x^2+2" onChange={e => { this.setState({ equ: e.target.value }) }} value={this.state.equ} />
                 </div>
                 <div class="form-group row ">
                   <div class="col-xs-4 NavBox2">
@@ -98,6 +107,10 @@ class bisec extends rootMom {
               <div class="slice NavBox2">
                 <input type="checkbox" checked={this.state.rememberMe}
                   onChange={this.handleCheck} />Auto
+					      </div>
+                <div class="slice NavBox2">
+                <input type="checkbox" checked={this.state.rememberMeSave}
+                  onChange={this.handleCheckSave} />Save 
 					      </div>
             </div>
             <table>

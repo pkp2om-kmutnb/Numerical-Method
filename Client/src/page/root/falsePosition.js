@@ -20,6 +20,13 @@ class falsePosition extends rootMom {
 
   };
 
+  handleCheckSave = (event) => {
+    if (event.target.checked) {
+      this.saveThis(3)
+    }
+    this.setState({ rememberMeSvae: event.target.checked });
+  };
+
   false_position(xl, xr, mitr, eps) {
     var xi = 0;
     var epsilon = 0;
@@ -93,7 +100,7 @@ class falsePosition extends rootMom {
                     <label for="ex6"></label>
                     <button type="submzit" class="btn btn-primary" >Excute</button>
                   </div>
-
+                  
                 </div>
 
               </form>
@@ -101,6 +108,10 @@ class falsePosition extends rootMom {
               <div class="slice NavBox2">
                 <input type="checkbox" checked={this.state.rememberMe}
                   onChange={this.handleCheck} />Auto
+					      </div>
+                <div class="slice NavBox2">
+                <input type="checkbox" checked={this.state.rememberMeSave}
+                  onChange={this.handleCheckSave} />Save 
 					      </div>
             </div>
             <table>

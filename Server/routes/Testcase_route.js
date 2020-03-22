@@ -48,9 +48,9 @@ testcaseRouter.get('/:name_type/:name_method',(req,res)=>{
 
 // create
 testcaseRouter.post('/',(req,res)=>{
+    const Testcase = new testcase(req.body[0]);
     console.log(Testcase)
-    //const Testcase = new testcase(req.body[0]);
-    /*Testcase.save((err,document)=>{
+    Testcase.save((err,document)=>{
         if(err){
             console.log("Unable to add Testcase")   
             res.status(500).json({message:{
@@ -65,38 +65,49 @@ testcaseRouter.post('/',(req,res)=>{
                 msgError : false
             }});
         }
-    });*/
+    });
 });
 
 // delete
 testcaseRouter.delete('/:id',(req,res)=>{
     testcase.findByIdAndDelete(req.params.id,err=>{
-        if(err)
+        if(err){
+            console.log("Unable to Delete Testcase") 
             res.status(500).json({message:{
                 msgBody : "Unable to Delete Testcase",
                 msgError : true
-            }});  
-        else
+            }}); 
+        }
+        else{
+            console.log("Successfully Deleted Testcase") 
             res.status(200).json({message:{
                 msgBody: "Successfully Deleted Testcase",
                 msgError : false
-            }});     
+            }});  
+        }
+               
     });
 });
 
 //update 
 testcaseRouter.put('/:index',(req,res)=>{
     testcase.findOneAndUpdate({index : req.params.index},req.body,{runValidators: true},(err,response)=>{
-        if(err)
+        if(err){
+            console.log("Unable to add Testcase")   
             res.status(500).json({message:{
                 msgBody : "Unable to Update Testcase",
                 msgError : true
             }});
-        else
-        res.status(200).json({message:{
-            msgBody: "Successfully Updated Testcase",
-            msgError : false
-        }});   
+        }
+            
+        else{
+            console.log("Successfully Updated Testcase") 
+            res.status(200).json({message:{
+                msgBody: "Successfully Updated Testcase",
+                msgError : false
+            }});  
+        }
+         
     });
 });
 

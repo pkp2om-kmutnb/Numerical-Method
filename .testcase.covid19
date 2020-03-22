@@ -7,6 +7,7 @@ db.testcases.insert([
 { _id : 14, index :"3" ,name_type : "root",             name_method: "OnePointItration",datas:[{"Root" : "3x^2-2x-1", "xL" : "0", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12"  }]  }, 
 { _id : 15, index :"4" ,name_type : "root",             name_method: "NewtonRaphson",datas   :[{ "Root" : "4x^3-x^2", "xL" : "-10", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12"  }]  },
 { _id : 16, index :"5" ,name_type : "root",             name_method: "Secant", 	datas 	:[{"Root" : "x^3-x^2+2x-5", "xL" : "-10", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }] },
+
 { _id : 17, index :"6" ,name_type : "integration",      name_method: "simpson",  datas   :[{ "fx" : "x^2+2x-4", "a" : 1, "b" : 5, "n" : 10  }] }, 
 { _id : 18, index :"7" ,name_type : "integration",      name_method: "Trapzoidal",  datas   :[{ "fx" : "x^2+2x-4", "a" : 1, "b" : 5, "n" : 10  }] }, 
 { _id : 19, index :"8" ,name_type : "differentiation",  name_method: "all",  	datas 	:[{ "fx" : "x^2+2x+10", "x" : 5, "h" : 4, "degree" : 2 }]   }, 
@@ -16,12 +17,12 @@ db.testcases.insert([
 ])
 
 API method /app
-{  index :"0" ,name_type : "root", 	    name_method:"bisection" , 	datas 	:[{ "Root" : "2x^3-x^2+2", "xL" : "-2", "xR" : "2", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }] }
-{  index :"1" ,name_type : "root",             name_method: "Graphical", 	datas 	:[{ "Root" : "x^3-x^2+2", "xL" : "-3", "xR" : "0", "Epsilon" : "0", "Maximum_Iterations" : "12" }]}
-{  index :"2" ,name_type : "root",             name_method: "FalsePosition"  , datas:[{"Root" : "x^3-x^2+2x-5", "xL" : "0", "xR" : "3", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }]}
-{  index :"3" ,name_type : "root",             name_method: "OnePointItration",datas:[{"Root" : "3x^2-2x-1", "xL" : "0", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12"  }]  }
-{  index :"4" ,name_type : "root",             name_method: "NewtonRaphson",datas   :[{ "Root" : "4x^3-x^2", "xL" : "-10", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12"  }]  
-{  index :"5" ,name_type : "root",             name_method: "Secant", 	datas 	:[{"Root" : "x^3-x^2+2x-5", "xL" : "-10", "xR" : "0", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }] }
+{  index :"0" ,name_type : "root", 	    name_method:"bisection" , 	datas 	:[{ "Root" : "x^3-27", "xL" : "-5", "xR" : "10", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }] }
+{  index :"1" ,name_type : "root",           name_method: "Graphical", 	datas 	:[{ "Root" :"x^3-27", "xL" : "-5", "xR" : "10", "Epsilon" : "0", "Maximum_Iterations" : "12" }]}
+{  index :"2" ,name_type : "root",             name_method: "FalsePosition"  , datas:[{"Root" : "x^3-27", "xL" : "-5", "xR" : "10", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }]}
+{  index :"3" ,name_type : "root",             name_method: "OnePointItration",datas:[{"Root" :"x^3-27", "xL" : "-5", "xR" : "10", "Epsilon" : "0.01", "Maximum_Iterations" : "12"  }]  }
+{  index :"4" ,name_type : "root",             name_method: "NewtonRaphson",datas   :[{ "Root" : "x^3-27", "xL" : "-5", "xR" : "10", "Epsilon" : "0.01", "Maximum_Iterations" : "12"  }]}  
+{  index :"5" ,name_type : "root",             name_method: "Secant", 	datas 	:[{"Root" : "x^3-27", "xL" : "-5", "xR" : "10", "Epsilon" : "0.01", "Maximum_Iterations" : "12" }] }
 {  index :"6" ,name_type : "integration",      name_method: "simpson",  	datas   :[{ "fx" : "x^2+2x-4", "a" : 1, "b" : 5, "n" : 10  }] }
 {  index :"7" ,name_type : "integration",      name_method: "Trapzoidal",  datas   :[{ "fx" : "x^2+2x-4", "a" : 1, "b" : 5, "n" : 10  }] }
 {  index :"8" ,name_type : "differentiation",  name_method: "all",  	datas 	:[{ "fx" : "x^2+2x+10", "x" : 5, "h" : 4, "degree" : 2 }]   } 

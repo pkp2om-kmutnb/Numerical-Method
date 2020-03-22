@@ -38,6 +38,13 @@ class onepoint extends rootMom {
     this.setState({ rememberMe: event.target.checked });
   };
 
+  handleCheckSave = (event) => {
+    if (event.target.checked) {
+      this.saveThis(4)
+    }
+    this.setState({ rememberMeSvae: event.target.checked });
+  };
+
   render() {
     return (
       <div className="onepoint">
@@ -84,6 +91,10 @@ class onepoint extends rootMom {
               <div class="slice NavBox2">
                 <input type="checkbox" checked={this.state.rememberMe}
                   onChange={this.handleCheck} />Auto
+					      </div>
+                <div class="slice NavBox2">
+                <input type="checkbox" checked={this.state.rememberMeSave}
+                  onChange={this.handleCheckSave} />Save
 					      </div>
             </div>
             <table>
