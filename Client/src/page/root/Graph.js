@@ -23,7 +23,6 @@ class Graph extends rootMom {
     
   };
 
-
   graph = (xl, xr, mitr) => {
     let dis = (xr - xl) / mitr * 1.0
     for (let counter = 1; counter < mitr; counter++) {
@@ -45,7 +44,6 @@ class Graph extends rootMom {
             <p>
               Graphical method, or Geometric method, allows solving simple linear programming problems intuitively and visually. <br />This method is limited to two or three problems decision variables since it is not possible to graphically   <br />             </p>
           </div>
-
           {/* INPUT BOX*/}
           <div class="form-group">
             <form action="" class="form-group" onSubmit={this.handleSummit}>
@@ -70,15 +68,12 @@ class Graph extends rootMom {
                 </div>
                 <div class="col-xs-4 NavBox2">
                 </div>
-
               </div>
               <div class="input-group">
                   <div class="NavBox2">
                     <label for="ex6"></label>
                     <button type="submzit" class="btn btn-primary" >Excute</button>
                   </div>
-
-                  
                 </div>
             </form>
             <div class="slice NavBox2">

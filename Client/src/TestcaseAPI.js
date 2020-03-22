@@ -1,4 +1,5 @@
 export default {
+    //error check
     getTestcase: () => {
         function handleErrors(response) {
             if (!response.ok) {
@@ -11,14 +12,14 @@ export default {
             .then(response => "ok")
             .catch(error => console.log(error));
     },
+    //get testcase
     getTestcaseId: (index) => {
         return fetch(`/Testcase/${index}`,
             { method: 'get' })
-            .then(res => res.text())          // convert to plain text
-            .then(text => text)
-            //.then(res => res.json())
-            //.then(data => data.response[0].datas[0]);
+            .then(res => res.text())          
+            .then(text => text);
     },
+    //create testcase
     createTestcase : (Testcase)=>{
         console.log(JSON.stringify(Testcase))
         return fetch(`/Testcase`,
@@ -30,4 +31,3 @@ export default {
                 .then(text => text);
     }
 }
-//.then(data => data.response[id].datas[index]);

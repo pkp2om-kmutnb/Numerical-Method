@@ -17,32 +17,25 @@ class bisec extends rootMom {
 
   showAnswer = () => {
     this.bisection(this.state.a, this.state.b, this.state.mitr, this.state.eps)
-
   }
 
   bisection(xl, xr, mitr, eps) {
-    let neg = false;
     let xm = 0;
     let epsilon = 0;
     let counter = 0;
-    if (this.func(xl) < this.func(xr)) {
-      neg = true;
-    }
     do {
       xm = (xl + xr) / 2;
       if (this.func(xm) * this.func(xr) < 0) {
         epsilon = this.error(xm, xr);
-        if (neg) xl = xm;
-        else xr = xm;
+        xl = xm;
       }
       else {
         epsilon = this.error(xm, xl);
-        if (neg) xr = xm;
-        else xl = xm;
+        xr = xm;
       }
-      this.state.items.push({ n: counter, xL: xl.toFixed(6), xR: xr.toFixed(6), xM: xm.toFixed(6), fxL: this.func(xl).toFixed(6), fxR: this.func(xr).toFixed(6), fxM: this.func(xm).toFixed(6),fn:this.func(counter).toFixed(6),acc:Math.abs(epsilon).toFixed(6)})
+      this.state.items.push({ n: counter, xL: xl.toFixed(6), xR: xr.toFixed(6), xM: xm.toFixed(6), fxL: this.func(xl).toFixed(6), fxR: this.func(xr).toFixed(6), fxM: this.func(xm).toFixed(6), fn: this.func(counter).toFixed(6), acc: Math.abs(epsilon).toFixed(6) })
       counter++;
-    } while (Math.abs(epsilon) > eps && counter<mitr);
+    } while (Math.abs(epsilon) > eps && counter < mitr);
     this.setState({ items: this.state.items })
 
   }
@@ -100,7 +93,6 @@ class bisec extends rootMom {
                     <label for="ex6"></label>
                     <button type="submzit" class="btn btn-primary" >Excute</button>
                   </div>
-
                 </div>
               </form>
               <div class="slice NavBox2">
@@ -113,6 +105,7 @@ class bisec extends rootMom {
                 <div class="myfontstye3">
                   <TableFunction items={this.state.items} />
                   {cookies.set('temp', 'true', { path: '/bisec' })}
+                  <br/><br/>
                   <Chart_graph items={this.state.items} />
                 </div>
               }

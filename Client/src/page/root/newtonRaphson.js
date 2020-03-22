@@ -22,7 +22,6 @@ class newtonRaphson extends rootMom {
       this.serach(4)
     }
     this.setState({ rememberMe: event.target.checked });
-    
   };
 
   newton = (a, mitr, eps) => {
@@ -38,7 +37,6 @@ class newtonRaphson extends rootMom {
       xold = xnew;
     } while (Math.abs(epsilon) > eps && counter < mitr);
     this.setState({ items: this.state.items })
-
   }
 
   render() {
@@ -80,8 +78,6 @@ class newtonRaphson extends rootMom {
                     <label for="ex6"></label>
                     <button type="submzit" class="btn btn-primary" >Excute</button>
                   </div>
-
-
                 </div>
               </form>
               <div class="slice NavBox2">

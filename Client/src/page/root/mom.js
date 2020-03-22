@@ -25,7 +25,6 @@ class mom extends Component {
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
-
   }
 
 
@@ -53,6 +52,26 @@ class mom extends Component {
     });
   }
 
+  evil = (fn) => {
+    return new Function('return ' + fn)();
+  }
+
+  error(xnew, xold) {
+    return Math.abs((xnew - xold) / xnew);
+  }
+
+  funcDiff(X) {
+    var eqution = math.derivative(this.state.equ, 'x');
+    let scope = { x: parseFloat(X) };
+    return eqution.eval(scope);
+  }
+
+  func = (X) => {
+    var eqution = math.compile(this.state.equ);
+    let scope = { x: parseFloat(X) };
+    return eqution.eval(scope);
+  }
+
   serach_on_git(id) {
     Axios.get(url).then(result => {
       this.setState({ a: result.data[0].root[id].xL })
@@ -63,8 +82,6 @@ class mom extends Component {
     })
   }
 
-  
-
   renderAuthen(cookie) {
     try {
       return cookie.length != '' ? 1 : 0
@@ -72,7 +89,6 @@ class mom extends Component {
       console.log('error');
     }
   }
-
 
   wait = (ms) => {
     var start = new Date().getTime();
@@ -107,30 +123,7 @@ class mom extends Component {
   showAnswer = () => {
   }
 
-  evil = (fn) => {
-    return new Function('return ' + fn)();
-  }
-
-  error(xnew, xold) {
-    return Math.abs((xnew - xold) / xnew);
-  }
-
-  funcDiff(X) {
-    var expr = math.derivative(this.state.equ, 'x');
-    let scope = { x: parseFloat(X) };
-    return expr.eval(scope);
-  }
-
-
-  func = (X) => {
-    var expr = math.compile(this.state.equ);
-    let scope = { x: parseFloat(X) };
-    return expr.eval(scope);
-  }
-
- 
 
 }
-
 export default mom;
 var url = 'https://raw.githubusercontent.com/pkp2om-kmutnb/Data-Provider/master/Root%20of%20Equation.json'

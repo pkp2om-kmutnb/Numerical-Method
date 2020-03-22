@@ -15,8 +15,7 @@ class onepoint extends rootMom {
   showAnswer = () => {
     this.onepoint(this.state.a, this.state.b, this.state.mitr,this.state.eps)
   }
-
-
+  
   onepoint = (a, b, mitr,eps) => {
     let xold = a
     let epsilon= 0;

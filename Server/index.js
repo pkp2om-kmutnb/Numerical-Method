@@ -16,18 +16,17 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-const uri1 = process.env.mongodb || 'mongodb://localhost:27017/Testcase';
+const uri = process.env.mongodb || 'mongodb://localhost:27017/Testcase';
 
-mongoose.connect(uri1,
+mongoose.connect(uri,
     {
         useNewUrlParser: true,
         useFindAndModify: false,
         useUnifiedTopology: true
     }, (err) => {
         if (err) {
-            process.exit(1);
             console.log('unable to connect to database');
-
+            process.exit(1);
         }
         else
             console.log('successfully connected to the database');

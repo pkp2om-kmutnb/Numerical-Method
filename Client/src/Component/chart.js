@@ -13,7 +13,7 @@ const MyChart = (props) => {
         ]
     )
 
-    function fx(){
+    function fx() {
         let arr = []
         for (let i = 0; i < props.items.length; i++) {
             arr.push({ x: props.items[i].n, y: props.items[i].fn })
@@ -32,14 +32,16 @@ const MyChart = (props) => {
 
 
     return (
-        <div
-            style={{
-                width: '500px',
-                height: '300px'
+
+        <div style={{
+                width: '550px',
+                height: '350px',
+                "background-color": "lightblue"
             }}
         >
-            <Chart data={data} axes={axes} />
-         
+            <Chart 
+            data={data} axes={axes} />
+
         </div>
     )
 }
